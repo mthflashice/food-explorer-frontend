@@ -1,4 +1,10 @@
 import{Container} from './styles'
 import {Button} from '../../components/Button'
 
-export 
+export function SignIn(){
+    return(
+        <Container>
+            <Button title='Entrar'/>
+        </Container>
+    );
+}
