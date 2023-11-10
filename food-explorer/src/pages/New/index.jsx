@@ -3,7 +3,7 @@ import {Header} from '../../components/Header'
 import { Textarea } from "../../components/Textarea";
 import { Section } from "../../components/Section";
 import { FoodItem } from "../../components/FoodItem";
-import { Footer } from "../../components/Food";
+import { Footer } from "../../components/Footer";
 
 export function New(){
     return(
