@@ -5,7 +5,7 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
+    border-radius: 0.5rem;
 
     >input{
         height: 48px;
@@ -17,7 +17,7 @@ export const Container = styled.div`
         border: 0;
 
         &::placeholder{
-            color:${({ theme }) => theme.COLORS.GRAY_100};
+            color:${({ theme }) => theme.COLORS.GRAY_300};
         }
 
         &:focus{

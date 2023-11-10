@@ -3,6 +3,7 @@ import {Header} from '../../components/Header'
 import { Textarea } from "../../components/Textarea";
 import { Section } from "../../components/Section";
 import { FoodItem } from "../../components/FoodItem";
+import { Footer } from "../../components/Food";
 
 export function New(){
     return(
@@ -17,6 +18,8 @@ export function New(){
             <Section title='Descrição'>
             <Textarea placeholder ='Fale brevemente sobre o prato, seus ingredientes e composição'/>
             </Section>
+
+            <Footer/>
             
         </Container>
     )
