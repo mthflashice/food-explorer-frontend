@@ -5,7 +5,7 @@ import { Footer } from '../../components/Footer'
 export function Home (){
     return(
         <Container>
-            <Header isAdmin/>
+            <Header />
 
             <Footer/>
         </Container>

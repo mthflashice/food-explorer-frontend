@@ -21,7 +21,11 @@ export function Header({isAdmin}){
                 icon = {FiSearch}
                 />
 
-                <Button title ='Novo Prato'/>
+                {isAdmin?
+                <Button title ='Novo Prato'/>:
+                <Button title='Pedidos' isCustomer orderCount={0}/>
+                }
+                
 
                 <Logout>
                     <FiLogOut/>
