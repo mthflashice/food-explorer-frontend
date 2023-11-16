@@ -43,10 +43,14 @@ export const Form = styled.form`
 
     >section input {
         border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
+        border-radius: 5px;
+    }
+    >a{
+        color: ${({ theme }) => theme.COLORS.WHITE};
         text-align: center;
-
         font-family: 'Poppins', sans-serif;
         font-size: 14px;
         line-height: 24px;
     }
+        
 `;
