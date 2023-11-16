@@ -11,6 +11,7 @@ export  function SignIn(){
             <Brand>
              <img src={brand} alt='Logo'/>
             </Brand>
+            
             <Form>
                 <h2>Faça seu login</h2>
 
