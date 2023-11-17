@@ -7,7 +7,7 @@ import spaguettiGambe from '../../assets/spaguetti-gambe.png'
 export function Home (){
     return(
         <Container>
-            <Header />
+            <Header/>
 
             <Dishes>
                 <Food isChecked

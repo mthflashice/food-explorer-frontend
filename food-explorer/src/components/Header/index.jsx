@@ -31,7 +31,7 @@ export function Header({isAdmin}){
                     <FiLogOut/>
                 </Logout>
              </Search>
-        /</Container>
+        </Container>
     );
 };
 
