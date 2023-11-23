@@ -3,53 +3,69 @@ import styled from 'styled-components'
 export const Container = styled.header `
     grid-area: header;
 
-    height: 96px;
+    height: 114px;
     width: 100%;
-    padding:  24px 123px;
+    padding:  56px 28px 24px;
     display:flex ;
-    gap: 32;
 
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_300};
 
-    > button:first-of-type{
-        max-width: 216px;
+    > button:last-child{
+        width: auto;
+        background: none;
+    }
+    @media(min-width: 1024px) {
+        height: 96px;
+        padding: 24px 123px;
+
+        justify-content: space-around;
+        gap:32px;
+
+        >button:first-of-type{
+            max-width: 216px;
+        }
     }
 
 `;
 
-export const Brand = styled.div`
+export const Menu = styled.button`
+    border: none;
+    background:none;
+
     display: flex;
     align-items: center;
+    gap: 16px;
 
-    >img{
-        width: 197px;
-        height: 39px;
+    color: ${({ theme }) => theme.COLORS.WHITE};
 
+    .fi-menu-icon{
+        width: 24px;
+        height: 18px;
+    }
+
+    span{
+        font-size: 21.16px;
     }
 `;
-
-export const Search = styled.div`
+export const Brand = styled.div`
+    width: 100%;
     display: flex;
-    padding: 12px 14px;
-    flex-wrap: 1;
-    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
 
-    background-color:${({ theme }) => theme.COLORS.BACKGROUND_500};
+    >img{
+        width: 160.61px;
+        height: 26px;
 
-    &:focus-within {
-        border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
     }
 
-    svg{
-        color: ${({ theme }) => theme.COLORS.GRAY_100};
-    }
+    @media (min-width: 1024px) {
+        width: auto;
 
-    input {
-        max-width: 282px;
-    }
-
-    &:focus{
-        border: none;
+        >img{
+            width: 197px;
+            height: 39px;
+        }
     }
 `;
 
@@ -60,9 +76,5 @@ export const Logout = styled.button`
     align-items: center;
 
     color: ${({ theme }) => theme.COLORS.WHITE};
-
-    >svg{
-        width: 32px;
-        height: 32px;
-    }
 `;
+
