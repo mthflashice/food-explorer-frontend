@@ -1,6 +1,6 @@
 import { Container,Form, Image, Category } from "./styles";
 import {Header} from '../../components/Header'
-import { Textarea } from "../../components/Textarea";
+import { Menu } from "../../components/Menu"; //
 import { Section } from "../../components/Section";
 import { FoodItem } from "../../components/FoodItem";
 import { Footer } from "../../components/Footer";
@@ -10,11 +10,19 @@ import { Button } from "../../components/Button";
 import { RxCaretLeft } from "react-icons/rx";
 import { FiUpload } from "react-icons/fi";
 import { RiArrowDownSLine } from "react-icons/ri";
+import { useState } from 'react'; 
+import { useMediaQuery } from "react-responsive";
 
-export function New(isNew){
+export function New(isNew, isAdmin){
+    const isDesktop = useMediaQuery({ minWidth: 1024 });
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     return(
         <Container>
-            <Header isAdmin />
+            {!isDesktop &&
+            <Menu isAdmin={isAdmin} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
+            }
+
+            <Header isAdmin={isAdmin} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
             <main>
                 <Form>
@@ -24,16 +32,14 @@ export function New(isNew){
                             voltar
                         </ButtonText>
 
-                        {isNew?
-                        <h1>Adicionar prato</h1>:
-                        <h1>Editar prato</h1>
-                        }
+                       <h1>{isNew ? 'Adicionar prato' : 'Editar prato'}</h1>
                     </header>
+
                     <div>
                         <Section title ='Imagem do Prato'>
                             <Image className="image">
                             <label htmlFor="image">
-                                <FiUpload/>
+                                <FiUpload size={24}/>
                                 <span>Selecione Imagem</span> 
 
                                 <input 
@@ -46,7 +52,7 @@ export function New(isNew){
 
                         <Section title = 'Nome'>
                             <input className="name"
-                            placeholder="ex: Salada Ceasar"
+                            placeholder= {isNew? "ex: Salada Ceasar" : 'Salada Ceasar'}
                             type="text"
                             />
                         </Section>
@@ -59,7 +65,7 @@ export function New(isNew){
                                         <option value='desert'>Sobremesa</option>
                                         <option value='beverage'>Bebida</option>
                                     </select>
-                                    <RiArrowDownSLine/>
+                                    <RiArrowDownSLine size={24}/>
                                 </label>
                             </Category>
                         </Section>
@@ -83,26 +89,18 @@ export function New(isNew){
             
             
             <Section title='Descrição'>
-                {isNew?
-                    <Textarea placeholder ='Fale brevemente sobre o prato, seus ingredientes e composição'/> :
-                    <Textarea placeholder ='A salada César é uma opção refrescante para o verão.'/>   
-            }
+                    <Textarea placeholder ={isNew ?
+                        'Fale brevemente sobre o prato, seus ingredientes e composição' :
+                         'A salada César é uma opção refrescante para o verão.'}
+                    />   
+            
             </Section>
 
             <div className="buttons">
-                {isNew?
-                <Button title='Salvar alteações' className='save' 
-                disabled/>:
-                <>
-                <Button title='Excluir prato' className='delete'/>
+                {isNew &&
+                <Button title='Excluir prato' className='delete'/>}
                 <Button title='Salvar alteações' className='save' 
                 disabled/>
-
-
-                </>
-
-                
-            }
             </div>
 
 

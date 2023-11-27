@@ -99,82 +99,57 @@ export const Container = styled.div`
 `;
 
 export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 364px;
+  margin: 10.92px auto 53.08px;
+  margin-inline: max(32px, calc((100% - 364px) / 2));
+  > header {
+    display: flex;
+	@@ -100,7 +121,8 @@ export const Form = styled.form`
+  > div {
     display: flex;
     flex-direction: column;
     gap: 24px;
-
-    max-width: 364px;
-    margin: 10.92px auto 53.08px;
-    margin-inline: max(32px, calc((100% - 364px) / 2));
-
-
-    >header{
-        display: flex;
-        flex-direction: column;
-   
-
-    h1{
-        margin-top: 24px;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 500;
-        line-height: 140%;
-
-        color: ${({ theme }) => theme.COLORS.GRAY_200};
-     } 
-    }
-
-    > div {
-    display: flex;
-    flex-direction:column;
-    gap: 24px;
-
     section {
       width: 100%;
-    }
-    section input {
+	@@ -110,28 +132,41 @@ export const Form = styled.form`
       background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
       border-radius: 8px;
     }
-    }
-
-    @media (min-width: 1024px) {
-        gap:32px;
-
-        max-width: 1120px;
-        margin: 40px auto 116px;
-        margin-inline: max(124px, calc((100% - 1120px) / 2));
-
-        >div{
-            flex-direction: row;
-            gap:32px;
+  }
+  @media (min-width: 1024px) {
+    gap: 32px;
+    max-width: 1120px;
+    margin: 40px auto 116px;
+    margin-inline: max(124px, calc((100% - 1120px) / 2));
+    > div {
+      flex-direction: row;
+      gap: 32px;
+      :first-of-type {
+        section:nth-of-type(1) {
+          max-width: 229px;
         }
-
-        :first-of-type{
-            section:nth-of-type(1){
-                max-width: 229px;
-            }
-            section:nth-of-type(2) {
-            max-width: 463px;
-            }
-
-            section:nth-of-type(3) {
-            max-width: 364px;
-            }  
+        
+        section:nth-of-type(2) {
+          max-width: 463px;
         }
-    
-    :nth-of-type(2) {
-      
-      section:nth-of-type(1) {
-        max-width: 837px;
+        section:nth-of-type(3) {
+          max-width: 364px;
+        }
       }
-
-      section:nth-of-type(2) {
-        max-width: 251px;
+      :nth-of-type(2) {
+        section:nth-of-type(1) {
+          max-width: 837px;
+        }
+        
+        section:nth-of-type(2) {
+          max-width: 251px;
+        }
       }
     }
   }
-
-`;
 
 export const Image = styled.div`
     padding: 12px 32px;
@@ -193,11 +168,15 @@ export const Image = styled.div`
         gap: 8px;
         cursor: pointer;
 
+        svg{
+            width: 24px;
+            height: 24px;
+        }
         span{
             position: absolute;
             right: 0;
             z-index: -1;
-            width: 100%;
+            max-width: 229px;
         }
 
         svg,span{
@@ -208,12 +187,6 @@ export const Image = styled.div`
       svg, span {
         filter: brightness(0.9);
       }
-    }
-  }
-
-  @media (min-width: 1024px) {
-    input {
-      max-width: 229px;
     }
   }
 `;
@@ -240,6 +213,8 @@ export const Category =styled.div`
         }
 
         svg{
+            width: 24px;
+            height: 24px;
             color:${({ theme }) => theme.COLORS.GRAY_100};
 
             position: absolute;
