@@ -8,7 +8,7 @@ export default createGlobalStyle`
   }
 
   :root {
-    /* font-size: 62.5%; */
+    font-size: 62.5%;
     --swiper-navigation-size: 4rem;
     --swiper-theme-color: ${({ theme }) => theme.COLORS.WHITE};
   }
