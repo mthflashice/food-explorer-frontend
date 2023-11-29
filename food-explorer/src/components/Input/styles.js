@@ -8,10 +8,10 @@ export const Container = styled.div`
     border-radius: 0.5rem;
 
     >input{
-        height: 48px;
+        height: 4.8rem;
         width: 100%;
 
-        padding: 12px 14px;
+        padding: 1.2rem 1.4rem;
         color: ${({ theme }) => theme.COLORS.WHITE};
         background: transparent;
         border: 0;

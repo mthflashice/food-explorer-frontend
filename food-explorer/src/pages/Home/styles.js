@@ -4,7 +4,7 @@ export const Container = styled.div`
     width: 100%;
 
     display: grid;
-    grid-template-rows: 114px auto 77px;
+    grid-template-rows: 11.4rem auto 7.7rem;
     grid-template-areas: 
     'header'
     'content'
@@ -18,15 +18,15 @@ export const Container = styled.div`
     
 
     >div{
-        max-width: 404px;
-        margin: 44px auto 25px;
-        margin-left: max(24px, calc(100% - 404px));
+        max-width: 40.4rem;
+        margin: 4.4rem auto 2.5rem;
+        margin-left: max(2.4rem, calc(100% - 40.4rem));
     
 
     >header{
-        max-width: 376px;
-        height: 120px;
-        margin-inline: 12px 16px;
+        max-width: 37.6rem;
+        height: 12rem;
+        margin-inline: 1.2rem 1.6rem;
 
         display: flex;
         flex-direction: column;
@@ -42,19 +42,19 @@ export const Container = styled.div`
         position: relative;
 
         img{
-            width:191px;
+            width:19.1rem;
             height: auto;
 
             position: absolute;
-            left: -30%;
+            left: -3rem;
             bottom: 0;
         }
 
         div{
-            width: 202px;
+            width: 20.2rem;
             position: absolute;
-            top: 36px;
-            right: 21px;
+            top: 3.6rem;
+            right: 2.1rem;
 
             color: ${({ theme }) => theme.COLORS.GRAY_200};
         
@@ -62,14 +62,14 @@ export const Container = styled.div`
         h1{
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
-            font-size: 18px;
+            font-size: 1.8rem;
             line-height: 140%;
 
-            margin-bottom: 3px;
+            margin-bottom: 0.3rem;
         }
 
         p{
-            font-size: 12px;
+            font-size: 1.2rem;
             line-height: 140%;
         }
      }
@@ -81,33 +81,33 @@ export const Container = styled.div`
 export const Content = styled.div`
    display: flex;
    flex-direction: column;
-   gap: 24px;
+   gap: 2.4rem;
 
-   margin-top: 62px;
+   margin-top: 6.2rem;
 
    >section >h2{
      font-family: 'Poppins', sans-serif;
      font-weight: 500;
-     font-size: 18px;
+     font-size: 1.8rem;
      line-height: 140%;
 
      color: ${({ theme }) => theme.COLORS.GRAY_200};
-     margin-bottom: 24px;
+     margin-bottom: 2.4rem;
    }
 
    swiper-slide{
-    max-width: 210px;
+    max-width: 21rem;
    }
 
    @media (min-width: 1024px) {
-    gap: 48px;
+    gap: 4.8rem;
 
     section > h2{
-        font-size: 32px;
+        font-size: 3.2rem;
     }
 
     swiper-slide{
-    max-width: 304px;
+    max-width: 30.4rem;
    }
    }
 `;

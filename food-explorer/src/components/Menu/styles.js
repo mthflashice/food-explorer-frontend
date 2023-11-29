@@ -7,7 +7,7 @@ export const Container = styled.div`
     z-index: 10;
 
     display: grid;// 
-    grid-template-rows: 114px auto;
+    grid-template-rows: 11.4rem auto;
     grid-template-areas: 
         'header'
         'content';
@@ -23,12 +23,12 @@ export const Container = styled.div`
         grid-area: content;
         justify-content: center;
 
-        max-width: 372px;
-        margin-inline: max(28px, calc(100%-372px/2));
+        max-width: 37.2rem;
+        margin-inline: max(2.8rem, calc(100%-37.2rem/2));
     }
 
     >div{
-        margin-bottom: 36px;
+        margin-bottom: 3.6rem;
 
         input{
 
@@ -38,7 +38,7 @@ export const Container = styled.div`
 
     button{
         width: 100%;
-        padding: 10px;
+        padding: 1rem;
         border-bottom: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_400};
 
         font-weight: 300;

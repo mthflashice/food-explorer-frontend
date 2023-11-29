@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     display: flex;
-    padding-left:14px;
-    border-radius: 5px;
+    padding-left:1.4rem;
+    border-radius: 0.5rem;
     
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_500};
     
@@ -16,7 +16,7 @@ export const Container = styled.div`
     }
 
     input{
-        max-width: 282px;
+        max-width: 28.2rem;
     
 
     &:focus{

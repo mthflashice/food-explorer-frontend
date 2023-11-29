@@ -2,19 +2,19 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   height: 100vh;
-  margin-inline: 65px 47px;
+  margin-inline: 6.5rem 4.7rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 73px;
+  gap: 7.3rem;
 
-  @media(min-width: 1024){
-        margin-inline: 154px 108px;
+  @media(min-width: 1024px){
+        margin-inline: 15.4rem 10.8rem;
         flex-direction: row;
         justify-content: space-between;
         gap: 0;
-    }
+}
 `;
 
 export const Brand =styled.div`
@@ -22,17 +22,15 @@ export const Brand =styled.div`
     margin-inline: auto;
 
 
-    >svg{
-        width: 278.05px;
-        height: 44px;
+    >img{
+        width: 27.8rem;
     }
 
     @media(min-width: 1024){
          margin-inline: 0;
 
-         >svg{
-            width: 324px;
-            height: 48px;
+         >img{
+            width: 32.4rem;
          }
     }
 
@@ -40,11 +38,11 @@ export const Brand =styled.div`
 
 export const Form = styled.form`
     width: 100%;
-    max-width: 316px;
+    max-width: 31.6rem;
 
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 3.2rem;
 
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700} ;
 
@@ -53,25 +51,25 @@ export const Form = styled.form`
     }
 
     >section h2{
-        margin-bottom: 8px;
+        margin-bottom: 0.8rem;
     }
 
     >section input {
-        border: 1px solid ${({ theme }) => theme.BACKGROUND_700};
-        border-radius: 5px;
+        border: 1rem solid ${({ theme }) => theme.BACKGROUND_700};
+        border-radius: 0.8rem;
     }
     >a{
         color: ${({ theme }) => theme.BACKGROUND_700};
         text-align: center;
         font-family: 'Poppins', sans-serif;
-        font-size: 14px;
-        line-height: 24px;
+        font-size: 1.4rem;
+        line-height: 2.4rem;
     }
 
-    @media(min-width: 1024){
-        min-width: 476px;
-        padding: 64px;
-        border-radius: 16px;
+    @media(min-width: 1024px){
+        min-width: 47.6rem;
+        padding: 6.4rem;
+        border-radius: 1.6rem;
 
         background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
 
@@ -80,7 +78,7 @@ export const Form = styled.form`
             
             font-family: 'Poppins', sans-serif;
             font-weight: 500;
-            font-size: 32px;
+            font-size: 3.2rem;
             text-align: center;
         }
     }
