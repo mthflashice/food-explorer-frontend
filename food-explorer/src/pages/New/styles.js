@@ -52,7 +52,6 @@ export const Container = styled.div`
                 }
 
                 .delete{
-                    max-width: 1.6rem;
                     background-color:${({ theme }) => theme.COLORS.BACKGROUND_600} ;
                 }
                 
@@ -71,7 +70,6 @@ export const Container = styled.div`
                 grid-template-rows: 9.6rem auto 7.7rem;
 
                 >main{
-                width:100%;
                 overflow-y: auto;
 
                 ::-webkit-scrollbar {
@@ -103,9 +101,8 @@ export const Form = styled.form`
     flex-direction: column;
     gap: 2.4rem;
 
-    max-width: 36.4rem;
-    margin: 1.1rem auto 5.3rem;
-    margin-inline: max(3.2rem, calc((100% - 36.4rem) / 2));
+    width: calc(100% - 6.4rem);
+    margin: 1.1rem 3.2rem 5.3rem;
 
 
     >header{
@@ -140,9 +137,8 @@ export const Form = styled.form`
     @media (min-width: 1024px) {
         gap:32rem;
 
-        max-width: 112rem;
-        margin: 4.0rem auto 11.6rem;
-        margin-inline: max(12.4rem, calc((100% - 112rem) / 2));
+        width: calc(100% - 24.8rem);
+        margin: 4rem 12.4rem 11.6rem;
 
         >div{
             flex-direction: row;
@@ -153,9 +149,6 @@ export const Form = styled.form`
             section:nth-of-type(1){
                 max-width: 22.9rem;
             }
-            section:nth-of-type(2) {
-            max-width: 46.3rem;
-            }
 
             section:nth-of-type(3) {
             max-width: 36.4rem;
@@ -163,10 +156,7 @@ export const Form = styled.form`
         }
     
     :nth-of-type(2) {
-      
-      section:nth-of-type(1) {
-        max-width: 83.7rem;
-      }
+
 
       section:nth-of-type(2) {
         max-width: 25.1rem;

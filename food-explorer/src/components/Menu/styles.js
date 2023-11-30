@@ -23,8 +23,8 @@ export const Container = styled.div`
         grid-area: content;
         justify-content: center;
 
-        max-width: 37.2rem;
-        margin-inline: max(2.8rem, calc(100%-37.2rem/2));
+        width: calc(100% - 5.6rem);
+        margin: 3.6rem 2.8rem 1.4rem;
     }
 
     >div{

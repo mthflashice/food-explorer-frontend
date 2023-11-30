@@ -18,13 +18,11 @@ export const Container = styled.div`
     
 
     >div{
-        max-width: 40.4rem;
-        margin: 4.4rem auto 2.5rem;
-        margin-left: max(2.4rem, calc(100% - 40.4rem));
+        width: calc(100% - 2.4rem);
+        margin: 4.4rem 0 2.5rem 2.4rem;
     
 
     >header{
-        max-width: 37.6rem;
         height: 12rem;
         margin-inline: 1.2rem 1.6rem;
 
@@ -76,6 +74,62 @@ export const Container = styled.div`
     }
  }
 }
+@media (min-width: 1024px) {
+    height: 100vh;
+    grid-template-rows: 9.6rem auto 7.7rem;
+
+    >main{
+        overflow-y: auto;
+    }
+
+    ::-webkit-scrollbar {
+        width: 0%.8rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: ${({ theme }) => theme.COLORS.BACKGROUND_500};
+        border-radius: 0.8rem;
+      }
+
+      > div {
+        width: calc(100% - 24.6rem);
+        margin: 17.2rem 12.3rem 4.8rem;
+
+        header {
+          height: 26rem;
+          margin-inline: 0.1rem;
+
+          border-radius: 0.8rem;
+
+          img {
+            width: 65.6rem;
+            left: -7rem;
+            bottom: -1.4rem;
+          }
+
+          div {
+            width: 42.2rem;
+            top: 8.8rem;
+            right: 10rem;
+
+            h1 {
+              font-weight: 500;
+              font-size: 4rem;
+
+              margin-bottom: 0.8rem;
+            }
+
+            p {
+              font-size: 1.6rem;
+              line-height: 100%;
+            }
+          }
+        }
+      }
+    
+
+}
+
 `;
 
 export const Content = styled.div`
