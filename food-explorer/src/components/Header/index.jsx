@@ -4,7 +4,8 @@ import { useMediaQuery } from 'react-responsive'
 
 import {Container, Brand, Menu, Logout} from './styles'
  
-import { Input } from '../../components/Input'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../hooks/auth';
 import { Button } from '../../components/Button'
 import {Search} from '../../components/Search'
 import  brand  from '../../assets/brand.svg';
@@ -14,6 +15,14 @@ import brandMobile from '../../assets/brand-mobile.svg'
 export function Header({isAdmin, isMenuOpen, setIsMenuOpen}){
     const isDesktop = useMediaQuery({ minWidth: 1024 });
     const logo = isAdmin ? (isDesktop ? brandAdmin : brandMobile) : brand;
+
+    const { signOut } = useAuth();
+    const navigation = useNavigate();
+
+    function handleSignOut() {
+        navigation('/');
+        signOut();
+    }
 
     return(
         <Container>
@@ -43,7 +52,7 @@ export function Header({isAdmin, isMenuOpen, setIsMenuOpen}){
                         }
 
                         {isDesktop&&
-                        <Logout>
+                        <Logout onClick={handleSignOut}>
                             <FiLogOut size={'3.2rem'}/>
                             </Logout>}
 
