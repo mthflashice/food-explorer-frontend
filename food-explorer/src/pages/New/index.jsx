@@ -1,6 +1,6 @@
 import { Container,Form, Image, Category } from "./styles";
 import {Header} from '../../components/Header'
-import { Menu } from "../../components/Menu"; //
+import { Menu } from "../../components/Menu"; ///
 import { Section } from "../../components/Section";
 import { FoodItem } from "../../components/FoodItem";
 import { Footer } from "../../components/Footer";
