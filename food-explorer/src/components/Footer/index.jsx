@@ -9,7 +9,7 @@ export function Footer(){
             </Brand>
 
             <Copyright>
-                © 2023 - Todos os direitos reservados.
+                © 2024 - Todos os direitos reservados.
             </Copyright>
         </Container>
     );

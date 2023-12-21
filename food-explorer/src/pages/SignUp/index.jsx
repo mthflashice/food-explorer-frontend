@@ -9,6 +9,7 @@ import { useState } from 'react';
 
 
 
+
 export function SignUp (){
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');

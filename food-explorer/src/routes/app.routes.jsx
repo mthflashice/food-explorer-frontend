@@ -8,8 +8,8 @@ export function AppRoutes () {
     return(
         <Routes>
             <Route path ='/' element={<Home/>}/>
-            <Route path ='/new' element={<New/>}/>
-            <Route path="/dish/:id" element={<Dish/>} />
+            <Route path ='/new' element={<New isNew />} />
+            <Route path='/dish/:id' element={<Dish/>} />
         </Routes>
     );
 }
