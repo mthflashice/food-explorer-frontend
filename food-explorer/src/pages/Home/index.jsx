@@ -5,6 +5,7 @@ import { Food } from '../../components/Food';
 import { Menu } from '../../components/Header/styles';
 import { Section } from '../../components/Section'
 import { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import { api } from '../../services/api';
 import {register} from 'swiper/element/bundle'
@@ -52,6 +53,12 @@ export function Home({ isAdmin }) {
     const [dishes, setDishes] = useState({ meals: [], desserts: [], beverages: [] });
     const [search, setSearch] = useState('');
 
+    const navigate = useNavigate();
+
+    function  handleDetails(id) {
+      navigate(`/dish/${id}`);
+    }
+
     useEffect(() =>{
       async function fetchDishes(){
         const response = await api.get(`/dishes?search=${search}`);
@@ -70,16 +77,18 @@ export function Home({ isAdmin }) {
         {!isDesktop && 
           <Menu
            isAdmin={isAdmin} 
-           isMenuOpen={isMenuOpen}
-           setIsMenuOpen={setIsMenuOpen}
-           setSearch={setSearch} />
+           isMenuOpen={isMenuOpen} 
+           setIsMenuOpen={setIsMenuOpen} 
+           setSearch={setSearch}
+          />
         }
   
         <Header 
          isAdmin={isAdmin}
          isMenuOpen={isMenuOpen}
          setIsMenuOpen={setIsMenuOpen}
-         setSearch={setSearch} />
+         setSearch={setSearch} 
+         />
   
         <main>
           <div>
@@ -115,6 +124,7 @@ export function Home({ isAdmin }) {
                       <Food 
                         isAdmin={isAdmin}
                         data={dish}
+                        onClick={() => handleDetails(dish.id)}
                         isFavorite={favorites.includes(dish.id)}
                         updateFavorite={updateFavorite} 
                         user_id={user_id}
@@ -142,6 +152,7 @@ export function Home({ isAdmin }) {
                       <Food 
                         isAdmin={isAdmin}
                         data={dish}
+                        onClick={() => handleDetails(dish.id)}
                         isFavorite={favorites.includes(dish.id)}
                         updateFavorite={updateFavorite} 
                         user_id={user_id}
@@ -169,6 +180,7 @@ export function Home({ isAdmin }) {
                       <Food 
                         isAdmin={isAdmin}
                         data={dish} 
+                        onClick={() => handleDetails(dish.id)}
                         isFavorite={favorites.includes(dish.id)}
                         updateFavorite={updateFavorite}
                         user_id={user_id}
