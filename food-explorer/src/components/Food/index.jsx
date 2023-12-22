@@ -6,6 +6,8 @@ import theme from '../../styles/theme'
 import { Container, Title, Order } from './styles'
 import {NumberPicker} from '../../components/NumberPicker'
 import { Button } from '../../components/Button'
+import { api } from '../../services/api';
+
 
 export function Food ({data, isAdmin, isChecked, ...rest}){
     const isDesktop = useMediaQuery({ minWidth: 1024 });
@@ -18,10 +20,10 @@ export function Food ({data, isAdmin, isChecked, ...rest}){
             isChecked? fillFiHeart: <FiHeart size={24}/>
             }
 
-            <img src={data.src} alt='Imagem do prato'/>
+            <img src={`${api.defaults.baseURL}/files/${data.image}`} alt='Imagem do prato.' />
 
             <Title>
-                <h2>{data.title}</h2>
+                <h2>{data.name}</h2>
                 <RxCaretRight size={isDesktop?'2.4rem':'1.4rem'}/>
             </Title>
 

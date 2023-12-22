@@ -4,10 +4,9 @@ import { Footer } from '../../components/Footer'
 import { Food } from '../../components/Food';
 import { Menu } from '../../components/Header/styles';
 import { Section } from '../../components/Section'
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import spaguettiGambe from '../../assets/spaguetti-gambe.png'
-import { useRef, useEffect } from 'react';
+import { api } from '../../services/api';
 import {register} from 'swiper/element/bundle'
 
 register ();
@@ -20,12 +19,6 @@ export function Home({ isAdmin }) {
     const isDesktop = useMediaQuery({ minWidth: 1024 });
     const [isMenuOpen, setIsMenuOpen] = useState(false);
   
-    const spaghettiData = {
-      src: spaguettiGambe,
-      title: "Spaguetti Gambe",
-      description: "Massa fresca com camarões e pesto.",
-      price: "79,97",
-    };
   
     useEffect(() => {
       const options = {
@@ -55,14 +48,38 @@ export function Home({ isAdmin }) {
         observer.disconnect();
       }
     }, []);
+
+    const [dishes, setDishes] = useState({ meals: [], desserts: [], beverages: [] });
+    const [search, setSearch] = useState('');
+
+    useEffect(() =>{
+      async function fetchDishes(){
+        const response = await api.get(`/dishes?search=${search}`);
+        const meals = response.data.filter(dish => dish.category === 'meal');
+        const desserts = response.data.filter(dish => dish.category === 'dessert');
+        const beverages = response.data.filter(dish => dish.category === 'beverage');
+
+      setDishes({ meals, desserts, beverages });
+    }
+
+    fetchDishes();
+    }, [search]);
   
     return (
       <Container>
         {!isDesktop && 
-          <Menu isAdmin={isAdmin} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+          <Menu
+           isAdmin={isAdmin} 
+           isMenuOpen={isMenuOpen}
+           setIsMenuOpen={setIsMenuOpen}
+           setSearch={setSearch} />
         }
   
-        <Header isAdmin={isAdmin} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+        <Header 
+         isAdmin={isAdmin}
+         isMenuOpen={isMenuOpen}
+         setIsMenuOpen={setIsMenuOpen}
+         setSearch={setSearch} />
   
         <main>
           <div>
@@ -82,139 +99,84 @@ export function Home({ isAdmin }) {
             </header>
   
             <Content>
-              <Section title='Refeições'>
-                <div className="swiper-background"></div>
-                <swiper-container
-                  key={isDesktop}
-                  ref={swiperElRef1}
-                  space-between={isDesktop ? "27" : "16"}
-                  slides-per-view="auto"
-                  navigation={isDesktop ? "true" : "false"}
-                  loop="true"
-                  // autoplay="true"
-                  grab-cursor="true"
-                >
-                  <swiper-slide>
-                    <Food isChecked isAdmin={isAdmin} data={spaghettiData} />
-                  </swiper-slide>
-  
-                  <swiper-slide>
-                    <Food isAdmin={isAdmin} data={spaghettiData} />
-                  </swiper-slide>
-  
-                  <swiper-slide>
-                    <Food isAdmin={isAdmin} data={spaghettiData} />
-                  </swiper-slide>
-  
-                  <swiper-slide>
-                    <Food isAdmin={isAdmin} data={spaghettiData} />
-                  </swiper-slide>
-  
-                  <swiper-slide>
-                    <Food isAdmin={isAdmin} data={spaghettiData} />
-                  </swiper-slide>
-  
-                  <swiper-slide>
-                    <Food isAdmin={isAdmin} data={spaghettiData} />
-                  </swiper-slide>
-  
-                  <swiper-slide>
-                    <Food isAdmin={isAdmin} data={spaghettiData} />
-                  </swiper-slide>
-  
-                  <swiper-slide>
-                    <Food isAdmin={isAdmin} data={spaghettiData} />
-                  </swiper-slide>
-                </swiper-container>
-              </Section>
-  
-              <Section title='Sobremesas'>
-                <swiper-container
-                  key={isDesktop}
-                  ref={swiperElRef2}
-                  space-between={isDesktop ? "27" : "16"}
-                  slides-per-view="auto"
-                  navigation={isDesktop ? "true" : "false"}
-                  loop="true"
-                  // autoplay="true"
-                  grab-cursor="true"
-                >
-                  <swiper-slide>
-                    <Food isChecked isAdmin={isAdmin} data={spaghettiData} />
-                  </swiper-slide>
-  
-                  <swiper-slide>
-                    <Food isAdmin={isAdmin} data={spaghettiData} />
-                  </swiper-slide>
-  
-                  <swiper-slide>
-                    <Food isAdmin={isAdmin} data={spaghettiData} />
-                  </swiper-slide>
-  
-                  <swiper-slide>
-                    <Food isAdmin={isAdmin} data={spaghettiData} />
-                  </swiper-slide>
-  
-                  <swiper-slide>
-                    <Food isAdmin={isAdmin} data={spaghettiData} />
-                  </swiper-slide>
-  
-                  <swiper-slide>
-                    <Food isAdmin={isAdmin} data={spaghettiData} />
-                  </swiper-slide>
-  
-                  <swiper-slide>
-                    <Food isAdmin={isAdmin} data={spaghettiData} />
-                  </swiper-slide>
-  
-                  <swiper-slide>
-                    <Food isAdmin={isAdmin} data={spaghettiData} />
-                  </swiper-slide>
-                </swiper-container>
-              </Section>
-  
-              <Section title='Bebidas'>
-                <swiper-container
-                  key={isDesktop}
-                  ref={swiperElRef3}
-                  space-between={isDesktop ? "27" : "16"}
-                  slides-per-view="auto"
-                  navigation={isDesktop ? "true" : "false"}
-                  loop="true"
-                  // autoplay="true"
-                  grab-cursor="true"
-                >
-                  <swiper-slide>
-                    <Food isChecked isAdmin={isAdmin} data={spaghettiData} />
-                  </swiper-slide>
-  
-                  <swiper-slide>
-                    <Food isAdmin={isAdmin} data={spaghettiData} />
-                  </swiper-slide>
-  
-                  <swiper-slide>
-                    <Food isAdmin={isAdmin} data={spaghettiData} />
-                  </swiper-slide>
-  
-                  <swiper-slide>
-                    <Food isAdmin={isAdmin} data={spaghettiData} />
-                  </swiper-slide>
-  
-                  <swiper-slide>
-                    <Food isAdmin={isAdmin} data={spaghettiData} />
-                  </swiper-slide>
-  
-                  <swiper-slide>
-                    <Food isAdmin={isAdmin} data={spaghettiData} />
-                  </swiper-slide>
-  
-                  <swiper-slide>
-                    <Food isAdmin={isAdmin} data={spaghettiData} />
-                  </swiper-slide>
-  
-                  <swiper-slide>
-                    <Food isAdmin={isAdmin} data={spaghettiData} />
-                  </swiper-slide>
+               <Section title='Refeições'>
+              <swiper-container
+                key={isDesktop}
+                ref={swiperElRef1}
+                space-between={isDesktop ? '27' : '16'}
+                slides-per-view='auto'
+                navigation={isDesktop ? 'true' : 'false'}
+                loop='true'
+                grab-cursor='true'
+              >
+                {
+                  dishes.meals.map(dish => (
+                    <swiper-slide key={String(dish.id)}>
+                      <Food 
+                        isAdmin={isAdmin}
+                        data={dish}
+                        isFavorite={favorites.includes(dish.id)}
+                        updateFavorite={updateFavorite} 
+                        user_id={user_id}
+                        handleDetails={handleDetails}
+                      />
+                    </swiper-slide>
+                  ))
+                }
+              </swiper-container>
+            </Section>
+
+            <Section title='Sobremesas'>
+              <swiper-container
+                key={isDesktop}
+                ref={swiperElRef2}
+                space-between={isDesktop ? '27' : '16'}
+                slides-per-view='auto'
+                navigation={isDesktop ? 'true' : 'false'}
+                loop='true'
+                grab-cursor='true'
+              >
+                {
+                  dishes.desserts.map(dish => (
+                    <swiper-slide key={String(dish.id)}>
+                      <Food 
+                        isAdmin={isAdmin}
+                        data={dish}
+                        isFavorite={favorites.includes(dish.id)}
+                        updateFavorite={updateFavorite} 
+                        user_id={user_id}
+                        handleDetails={handleDetails}
+                      />
+                    </swiper-slide>
+                  ))
+                }
+              </swiper-container>
+            </Section>
+
+            <Section title='Bebidas'>
+              <swiper-container
+                key={isDesktop}
+                ref={swiperElRef3}
+                space-between={isDesktop ? '27' : '16'}
+                slides-per-view='auto'
+                navigation={isDesktop ? 'true' : 'false'}
+                loop='true'
+                grab-cursor='true'
+              >
+                {
+                  dishes.beverages.map(dish => (
+                    <swiper-slide key={String(dish.id)}>
+                      <Food 
+                        isAdmin={isAdmin}
+                        data={dish} 
+                        isFavorite={favorites.includes(dish.id)}
+                        updateFavorite={updateFavorite}
+                        user_id={user_id}
+                        handleDetails={handleDetails}
+                      />
+                    </swiper-slide>
+                  ))
+                }
                 </swiper-container>
               </Section>
             </Content>
