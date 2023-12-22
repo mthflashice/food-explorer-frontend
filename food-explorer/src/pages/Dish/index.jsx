@@ -18,10 +18,13 @@ export function Dish(isAdmin){
     const [data, setData] = useState(null);
 
     const params = useParams();
-    const navigate = useNavigate();
+    const navigate = useNavigate(-1);
 
     function handleBack() {
         navigate('/');
+      }
+      function handleEdit() {
+        navigate(`/edit/${params.id}`);
       }
     
       useEffect(() => {
@@ -76,7 +79,11 @@ export function Dish(isAdmin){
 
                 <div className='buttons'>
                   {isAdmin ? 
-                    <Button title='Editar prato' className='edit' /> : 
+                    <Button 
+                    title='Editar prato' 
+                    className='edit'
+                    onClick={handleEdit} 
+                    /> : 
                     <>
                       <NumberPicker />
                       <Button 

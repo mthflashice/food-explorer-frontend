@@ -41,23 +41,10 @@ export const Container = styled.div`
                 }
             }
 
-            .buttons{
-                display: flex;
-                flex-direction: row;
-                gap:3.2rem;
-                justify-content: flex-end;
-
-                >button{
+            .save{
+                > button {
                     padding: 1.2rem 2.4rem;
-                }
-
-                .delete{
-                    background-color:${({ theme }) => theme.COLORS.BACKGROUND_600} ;
-                }
-                
-                .save{
-                    max-width: 17.2rem;
-
+                    
                     &:disabled{
                         opacity: 1;
                         background-color: ${({ theme }) => theme.COLORS.LIGHT_RED};
@@ -89,7 +76,11 @@ export const Container = styled.div`
                 }
 
                 .save {
-                    max-width: 17.2rem;
+                    justify-content: flex-end;
+
+                    > button {
+                        max-width: 17.2rem;
+                        }
                 }
             }
             }
