@@ -12,7 +12,7 @@ import  brand  from '../../assets/brand.svg';
 import  brandAdmin  from '../../assets/brand-admin.svg'
 import brandMobile from '../../assets/brand-mobile.svg'
 
-export function Header({isAdmin, isMenuOpen, setIsMenuOpen, setSearch}){
+export function Header({ isAdmin, isDisabled, isMenuOpen, setIsMenuOpen, setSearch }){
     const isDesktop = useMediaQuery({ minWidth: 1024 });
     const logo = isAdmin ? (isDesktop ? brandAdmin : brandMobile) : brand;
 
@@ -44,10 +44,10 @@ export function Header({isAdmin, isMenuOpen, setIsMenuOpen, setSearch}){
                       <img src={logo} alt='Logo'/>
                      </Brand>
 
-                     {isDesktop && <Search setSearch={setSearch}/>}
+                     {isDesktop && <Search isDisabled={isDisabled} setSearch={setSearch} />}
 
                      {isAdmin?
-                        (isDesktop &&<Button title='Novo Prato'/>):
+                        (isDesktop && <Button title='Novo prato' onClick={handleNew} />) :
                         <Button title ={isDesktop? 'Pedidos':undefined} isCustomer orderCount={0}/>
                         }
 

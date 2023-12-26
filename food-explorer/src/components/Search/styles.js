@@ -22,5 +22,8 @@ export const Container = styled.div`
     &:focus{
         border: none;
      }
+     &:disabled {
+      opacity: 0.5;
+    }
     }
     `;
