@@ -22,6 +22,14 @@ export function SignUp (){
             return alert('Preencha todos os campos!');
     }
 
+    if (!/\S+@\S+\.\S+/.test(email)) {
+        return alert('Digite um e-mail válido!');
+      }
+  
+      if (password.length < 6) {
+        return alert('A senha deve ter no mínimo 6 caracteres!');
+      }
+
     api
     .post('/users', { name, email, password })
     .then(() => {
