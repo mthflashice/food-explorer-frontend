@@ -1,10 +1,7 @@
 import {FiMinus, FiPlus} from 'react-icons/fi'
 import { Container } from './styles'
-import { useState } from 'react';
 
-export function NumberPicker(){
-    const [number,setNumber] = useState(1);
-
+export function NumberPicker({ number, setNumber }) {
     const incrementNumber = ()=>{
         setNumber(number+1);
     };
