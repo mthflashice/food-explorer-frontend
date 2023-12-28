@@ -5,13 +5,13 @@ import { Edit } from './../pages/Edit';
 import { Dish } from './../pages/Dish'
 import { Home } from './../pages/Home'
 
-export function AppRoutes () {
+export function AppRoutes ({ isAdmin }) {
     return(
         <Routes>
-            <Route path ='/' element={<Home/>}/>
-            <Route path ='/new' element={<New isAmin />} />
-            <Route path='/edit/:id' element={<Edit isAdmin />} />
-            <Route path='/dish/:id' element={<Dish isAdmin/>} />
+            <Route path ='/' element={<Home isAdmin={isAdmin}/>}/>
+            <Route path ='/new' element={<New isAmin={isAdmin} />} />
+            <Route path='/edit/:id' element={<Edit isAdmin={isAdmin} />} />
+            <Route path='/dish/:id' element={<Dish isAdmin={isAdmin}/>} />
         </Routes>
     );
 }
