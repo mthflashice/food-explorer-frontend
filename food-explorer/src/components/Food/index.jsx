@@ -7,10 +7,18 @@ import { Container, Title, Order } from './styles'
 import {NumberPicker} from '../../components/NumberPicker'
 import { Button } from '../../components/Button'
 import { api } from '../../services/api';
+import { useState } from "react";
+import { useParams, useNavigate } from 'react-router-dom';
+
 
 
 export function Food ({ data, isAdmin, isFavorite, updateFavorite, handleDetails, ...rest }){
     const isDesktop = useMediaQuery({ minWidth: 1024 });
+
+    const params = useParams();
+    const navigate = useNavigate();
+  
+    const [number, setNumber] = useState(1);
 
 
   const handleFavorite = async () => {
@@ -24,11 +32,35 @@ export function Food ({ data, isAdmin, isFavorite, updateFavorite, handleDetails
       console.log('Erro ao atualizar favoritos:', error);
     }
   };
+
+  function handleEdit() {
+    navigate(`/edit/${params.id}`);
+  }
+
+  async function handleInclude() {
+    try{
+      const cartItem = {
+        dish_id: data.id,
+        name: data.name,
+        quantity: number,
+      };
+
+      await api.post('/carts', { cart_items: [cartItem] })
+      alert('Prato adicionado ao carrinho!');
+    } catch (error) {
+      if (error.response) {
+        alert(error.response.data.message);
+      } else {
+        alert('Não foi possível adicionar ao carrinho.');
+      }
+    }
+  }
     
     return(
         <Container {...rest} isAdmin={isAdmin}>
             {isAdmin? (
-            <BiPencil size={'2.4rem'}/>): (
+            <BiPencil size={'2.4rem'}onClick={handleEdit}/>
+            ): (
                 <FiHeart
                 size={"2.4rem"}
                 fill={isFavorite ? theme.COLORS.GRAY_200 : undefined}
@@ -54,7 +86,7 @@ export function Food ({ data, isAdmin, isFavorite, updateFavorite, handleDetails
             {!isAdmin &&
             <Order>
                 <NumberPicker/>
-                <Button title='incluir'/>
+                <Button title='incluir' onClick={handleInclude}/>
                 </Order>
                 }
 
