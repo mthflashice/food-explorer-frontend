@@ -59,6 +59,7 @@ export const Container =styled.div`
         >p{
             font-size: 1.4rem;
             line-height: 160%;
+            text-align: center;
 
             color: ${({ theme }) => theme.COLORS.GRAY_100};
             overflow: hidden;
@@ -83,6 +84,7 @@ export const Title = styled.div`
         font-weight: 500;
         font-size: 1.4rem;
         line-height: 2.4rem;
+        text-align: center;
 
         width: 100%;
 
