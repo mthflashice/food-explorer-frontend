@@ -90,7 +90,7 @@ export const Container = styled.div`
             }
 
             .include{
-                max-width: fit-content
+                max-width: fit-content;
                 padding:1.2rem 2.4rem;
 
                 font-size: 1.4rem;
