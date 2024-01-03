@@ -8,7 +8,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import { api } from '../../services/api';
-import {bannerMobile} from '../../assets/banner-mobile.png'
+import bannerMobile from '../../assets/banner-mobile.png'
 import homeBanner from '../../assets/home-banner.png';
 import {register} from 'swiper/element/bundle'
 
