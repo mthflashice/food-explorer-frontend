@@ -12,7 +12,7 @@ import { Button } from '../../components/Button';
 import {Menu} from '../../components/Menu' 
 import { api } from '../../services/api';
 
-export function Dish(isAdmin){
+export function Dish(isAdmin, user_id){
     const isDesktop = useMediaQuery({ minWidth: 1024 });
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [data, setData] = useState(null);
@@ -21,6 +21,9 @@ export function Dish(isAdmin){
     const navigate = useNavigate();
 
     const [number, setNumber] = useState(1);
+    const [cartId, setCartId] = useState(null);
+
+    const [loading, setLoading] = useState(false);
 
     function handleBack() {
         navigate(-1);
@@ -37,6 +40,41 @@ export function Dish(isAdmin){
     
         fetchDish();
       }, []);
+
+      async function handleInclude() {
+        setLoading(true);
+    
+        try {
+          const cartItem = {
+            dish_id: data.id,
+            name: data.name,
+            quantity: number,
+          };
+    
+          const response = await api.get('/carts', { params: { created_by: user_id } });
+          const cart = response.data[0];
+    
+          if (cart) {
+            await api.patch(`/carts/${cart.id}`, { cart_items: [cartItem] });
+          } else {
+            const createResponse = await api.post('/carts', { cart_items: [cartItem], created_by: user_id });
+            const createdCart = createResponse.data;
+    
+            setCartId(createdCart.id);
+          }
+    
+          alert('Prato adicionado ao carrinho!');
+        } catch (error) {
+          if (error.response) {
+            alert(error.response.data.message);
+          } else {
+            alert('Não foi possível adicionar ao carrinho.');
+            console.log('Erro ao adicionar ao carrinho:', error);
+          }
+        } finally {
+          setLoading(false);
+        }
+      }
 
     return (
         <Container>
@@ -94,7 +132,8 @@ export function Dish(isAdmin){
                     <Button 
                     title='Editar prato' 
                     className='edit'
-                    onClick={handleEdit} 
+                    onClick={handleEdit}
+                    loading={loading} 
                     /> : 
                     <>
                       <NumberPicker number={number} setNumber={setNumber} />
@@ -105,6 +144,8 @@ export function Dish(isAdmin){
                         } 
                         className='include' 
                         isCustomer={!isDesktop}
+                        onClick={handleInclude}
+                        loading={loading}
                       />
                     </>
                   }
