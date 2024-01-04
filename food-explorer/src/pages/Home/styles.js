@@ -146,7 +146,7 @@ export const Content = styled.div`
      line-height: 140%;
 
      color: ${({ theme }) => theme.COLORS.GRAY_200};
-     margin-bottom: 2.4rem;
+     margin-bottom: 2.4rem;index: 2;
    }
 
    swiper-container {
@@ -177,6 +177,8 @@ export const Content = styled.div`
       bottom: 0;
       width: 22.4rem;
       z-index: 2;
+      pointer-events: none;
+      
     }
     swiper-container::before {
       left: 0;
