@@ -20,9 +20,16 @@ export const Container = styled.header `
         padding: 2.4rem 12.3rem;
 
         justify-content: space-around;
-        gap:32px;
+        gap: 3.2rem;
 
-        >button:first-of-type{
+        .favorites {
+      border: 0;
+      background: none;
+      line-height: 100%;
+      color: ${({ theme }) => theme.COLORS.GRAY_200};
+    }
+
+        .new, .orders{
             max-width: 21.6rem;
         }
     }

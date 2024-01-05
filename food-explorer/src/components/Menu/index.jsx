@@ -13,9 +13,13 @@ export function Menu({ isAdmin, isMenuOpen, setIsMenuOpen, setSearch, isDisabled
     function handleNew() {
       navigate("/new");
     }
+
+    function handleFavorites() {
+        navigate('/favorites');
+      }
   
     function handleSignOut() {
-      navigate("/");
+      navigate('/');
       signOut();
     }
     return(
@@ -30,6 +34,11 @@ export function Menu({ isAdmin, isMenuOpen, setIsMenuOpen, setSearch, isDisabled
                     Novo Prato
                     </ButtonText>
                     ) : null}
+
+                    <ButtonText onClick={handleFavorites}>
+                        Meus favoritos 
+                    </ButtonText>
+                    
 
                     <ButtonText onClick={handleSignOut}>
                         Sair
