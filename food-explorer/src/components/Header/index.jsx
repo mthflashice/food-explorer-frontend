@@ -1,4 +1,4 @@
-import {FiSearch, FiLogOut, FiMenu} from 'react-icons/fi'
+import { FiLogOut, FiMenu} from 'react-icons/fi'
 import {MdClose} from 'react-icons/md'
 import { useMediaQuery } from 'react-responsive'
 
@@ -21,7 +21,11 @@ export function Header({ isAdmin, isDisabled, isMenuOpen, setIsMenuOpen, setSear
 
     function handleFavorites() {
         navigate('/favorites');
-      }
+    }
+
+    function handleNew(){
+        navigate('/new');
+    }
 
     function handleSignOut() {
         navigation('/');
@@ -32,7 +36,7 @@ export function Header({ isAdmin, isDisabled, isMenuOpen, setIsMenuOpen, setSear
         <Container>
             {!isDesktop && (
                 <Menu>
-                    {!setIsMenuOpen?
+                     {!isMenuOpen ?
                         <FiMenu className='fi-menu-icon' onClick={()=>
                         setIsMenuOpen(true)}/>:
                         <>
@@ -59,10 +63,11 @@ export function Header({ isAdmin, isDisabled, isMenuOpen, setIsMenuOpen, setSear
             <Button className='orders' title={isDesktop ? 'Pedidos' : undefined} isCustomer orderCount={0} />
                         }
 
-                        {isDesktop&&
+                        {isDesktop &&
                         <Logout onClick={handleSignOut}>
                             <FiLogOut size={'3.2rem'}/>
-                            </Logout>}
+                         </Logout>
+                        }
 
                     </>
                 )}
