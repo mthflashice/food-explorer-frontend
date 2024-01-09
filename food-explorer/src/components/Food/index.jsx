@@ -10,8 +10,6 @@ import { api } from '../../services/api';
 import { useState } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
 
-
-
 export function Food({ data, isAdmin, isFavorite, updateFavorite, handleDetails, user_id, ...rest }){
     const isDesktop = useMediaQuery({ minWidth: 1024 });
 
@@ -81,13 +79,12 @@ export function Food({ data, isAdmin, isFavorite, updateFavorite, handleDetails,
     return(
         <Container {...rest} isAdmin={isAdmin}>
             {isAdmin? (
-            <BiPencil size={'2.4rem'}onClick={handleEdit}/>
-            ): (
+            <BiPencil size={'2.4rem'} onClick={handleEdit}/>
+            ) : (
                 <FiHeart
                 size={"2.4rem"}
                 fill={isFavorite ? theme.COLORS.GRAY_200 : undefined}
                 onClick={handleFavorite}
-              
             />
             )}
 
@@ -99,11 +96,14 @@ export function Food({ data, isAdmin, isFavorite, updateFavorite, handleDetails,
 
             <Title>
                 <h2>{data.name}</h2>
-                <RxCaretRight size={isDesktop?'2.4rem':'1.4rem'}/>
+                <RxCaretRight 
+                size={isDesktop? '2.4rem' : '1.4rem'}
+                onClick={() => handleDetails(data.id)} 
+                />
             </Title>
 
             {isDesktop && <p>{data.description}</p>}
-            <span>R${data.price.toLocaleSting('pt-BR', { minimumFractionDigits: 2 })}</span>
+            <span>R$ {data.price.toLocaleSting('pt-BR', { minimumFractionDigits: 2 })}</span>
 
             {!isAdmin &&
             <Order>
@@ -111,7 +111,6 @@ export function Food({ data, isAdmin, isFavorite, updateFavorite, handleDetails,
                 <Button title='incluir' onClick={handleInclude}loading={loading} />
                 </Order>
                 }
-
         </Container>
     );
 }

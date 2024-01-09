@@ -14,8 +14,7 @@ export const Container = styled.div`
     
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
 
-    visibility:${({ isMenuOpen }) => (isMenuOpen ? "visible" : "hidden")} ;
-
+    visibility: ${({ isMenuOpen }) => (isMenuOpen ? "visible" : "hidden")};
     opacity: ${({ isMenuOpen }) => (isMenuOpen ? "1" : "0")};
     transition: opacity 0.7s ease-out, visibility 0.7s ease-out;
     
@@ -31,7 +30,6 @@ export const Container = styled.div`
         margin-bottom: 3.6rem;
 
         input{
-
             max-width: 100%;
         }
     }

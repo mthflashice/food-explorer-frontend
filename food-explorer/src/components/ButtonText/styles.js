@@ -11,16 +11,15 @@ export const Container = styled.button `
 
     color: ${({ theme }) => theme.COLORS.GRAY_200};
 
-    @media (min-width: 1024px) {
-    font-weight: 700;
-  }
-
     display: flex;
     align-items: center;
 
     >svg{
-        width: 3.2rem;
-        height: 3.2rem;
+        font-size: 3.2rem;
         color: ${({ theme }) => theme.COLORS.WHITE};
-    };
+    }
+
+    @media (min-width: 1024px) {
+    font-weight: 700;
+  }
     `;

@@ -46,7 +46,8 @@ export function Header({ isAdmin, isDisabled, isMenuOpen, setIsMenuOpen, setSear
                         }
                 </Menu>
                 )}
-                {(isDesktop || isMenuOpen)&&(
+
+                {(isDesktop || isMenuOpen) && (
                     <>
                       <Brand>
                       <img src={logo} alt='Logo'/>
@@ -68,7 +69,6 @@ export function Header({ isAdmin, isDisabled, isMenuOpen, setIsMenuOpen, setSear
                             <FiLogOut size={'3.2rem'}/>
                          </Logout>
                         }
-
                     </>
                 )}
                  </Container>

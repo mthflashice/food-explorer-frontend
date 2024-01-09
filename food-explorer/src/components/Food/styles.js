@@ -20,9 +20,6 @@ export const Container =styled.div`
     }
 
     >svg{
-        width: 24px;
-        height: 24px;
-
         color: ${({ theme }) => theme.COLORS.GRAY_200};
 
         position: absolute;
@@ -32,7 +29,7 @@ export const Container =styled.div`
 
     >img{
         max-width: 88px;
-        margin-top:${({isAdmin})=>isAdmin?'46px':'none'};   
+        margin-top:${({isAdmin})=>isAdmin?'4.6rem' : 'none'};   
         
         cursor: pointer;
     }
@@ -40,7 +37,7 @@ export const Container =styled.div`
     >span{
         line-height: 100%;
         color: ${({ theme }) => theme.COLORS.LIGHT_BLUE};
-        margin-top:${({isAdmin})=>isAdmin?'46px':'none'};     
+        margin-top:${({isAdmin})=>isAdmin?'4.6rem' : 'none'};     
     }
 
     @media (min-width: 1024px) {
@@ -54,7 +51,7 @@ export const Container =styled.div`
 
         >img{
             max-width: 17.6rem;
-            margin-top:${({isAdmin})=>isAdmin?'31.5px':'none'};     
+            margin-top:${({isAdmin})=>isAdmin?'3.2rem' : 'none'};     
         }
         >p{
             font-size: 1.4rem;
@@ -68,7 +65,7 @@ export const Container =styled.div`
         >span{
         font-size: 3.2rem;
         line-height: 160%;
-        margin-top:${({isAdmin})=>isAdmin?'31.5px':'none'}; 
+        margin-top:${({isAdmin})=>isAdmin?'3.2rem' : 'none'}; 
     }
     }
 `;
@@ -110,7 +107,7 @@ export const Order = styled.div`
     gap: 1.6rem;
 
     >button{
-        padding: 0%.4rem 2.4rem;
+        padding: 0.4rem 2.4rem;
     }
 
     @media(min-width: 1024){
@@ -118,8 +115,7 @@ export const Order = styled.div`
         flex-direction: row;
 
         >button{
-        padding: 0%.4rem 2.4rem;
+        padding: 1.2rem 2.4rem;
     }
-
-    }
+   }
 `;

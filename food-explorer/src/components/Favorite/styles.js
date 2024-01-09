@@ -5,10 +5,12 @@ export const Container = styled.div`
   align-items: center;
   gap: 1.3rem;
   padding: 1.6rem 0;
+
   > img {
     width: 7.2rem;
     height: fit-content;
   }
+  
   > div {
     h2 {
       font-family: 'Poppins', sans-serif;
