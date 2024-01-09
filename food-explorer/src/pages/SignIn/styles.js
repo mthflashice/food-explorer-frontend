@@ -14,7 +14,6 @@ export const Container = styled.div`
         margin-inline: 13.1rem;
         flex-direction: row;
         justify-content: space-between;
-        gap: 0;
     }
 `;
 
@@ -59,6 +58,7 @@ export const Form = styled.form`
         background-color: ${({ theme }) => theme.COLORS.BACKGROUND_500};
         border-radius: 0.8rem;
     }
+
     >a{
         color: ${({ theme }) => theme.COLORS.WHITE};
         text-align: center;
@@ -79,14 +79,15 @@ export const Form = styled.form`
             font-family: 'Poppins', sans-serif;
             font-weight: 500;
             font-size: 3.2rem;
+            line-height: 140%;
             text-align: center;
         }
 
         >section input{
             background-color: transparent;
             
-            border: 0.5rem solid solid ${({ theme }) => theme.COLORS.WHITE};
-            border-radius: 5rem;
+            border: 1px  solid solid ${({ theme }) => theme.COLORS.WHITE};
+            border-radius: 0.5rem;
         }
     }
         

@@ -61,7 +61,6 @@ useEffect(()=>{
         setData({
             token,
             user: JSON.parse(user),
-
         });
     }
 }, []);
@@ -72,7 +71,7 @@ return (
         signIn,
         signOut,
         isUserAuthenticated,
-        user: data.user
+        user: data.user,
       }}
     >
       {children}
