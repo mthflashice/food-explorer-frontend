@@ -6,6 +6,7 @@ import { FoodItem } from "../../components/FoodItem";
 import { Footer } from "../../components/Footer";
 import { ButtonText } from "../../components/ButtonText";
 import { Input } from "../../components/Input";
+import {Textarea} from '../../components/Textarea'
 import { Button } from "../../components/Button";
 import { RxCaretLeft } from "react-icons/rx";
 import { FiUpload } from "react-icons/fi";

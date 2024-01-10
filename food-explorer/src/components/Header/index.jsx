@@ -17,18 +17,18 @@ export function Header({ isAdmin, isDisabled, isMenuOpen, setIsMenuOpen, setSear
     const logo = isAdmin ? (isDesktop ? brandAdmin : brandMobile) : brand;
 
     const { signOut } = useAuth();
-    const navigation = useNavigate();
+    const navigate = useNavigate();
 
     function handleFavorites() {
         navigate('/favorites');
     }
 
-    function handleNew(){
+    function handleNew() {
         navigate('/new');
     }
 
     function handleSignOut() {
-        navigation('/');
+        navigate('/');
         signOut();
     }
 
