@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const api = axios.create({
-    baseURL: 'https://food-explorer-backend-7osa.onrender.com' ///yarn start
+    baseURL: 'https://food-explorer-backend-jux8.onrender.com/' //yarn start
 
 });
 
