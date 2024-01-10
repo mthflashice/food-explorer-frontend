@@ -74,6 +74,7 @@ export function Home({ isAdmin, user_id }) {
     fetchDishes();
     }, [search]);
 
+    const [favorites, setFavorites] = useState([]);
     useEffect(() => {
       const fetchFavorites = async () => {
         try {
@@ -105,8 +106,6 @@ export function Home({ isAdmin, user_id }) {
         console.log('Erro ao atualizar favoritos:', error);
       }
     };
-
-    const [favorites, setFavorites] = useState([]);
   
     return (
       <Container>

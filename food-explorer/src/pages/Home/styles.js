@@ -14,7 +14,7 @@ export const Container = styled.div`
         grid-area: content;
         justify-self: center;
 
-        width: 100vh;
+        width: 100vw;
     
 
     >div{
@@ -35,13 +35,12 @@ export const Container = styled.div`
           ${({ theme }) => theme.COLORS.GRADIENT_100} 0%, 
           ${({ theme }) => theme.COLORS.GRADIENT_200} 100%
         );
-        border-radius: 3px;
+        border-radius: 0.3rem;
 
         position: relative;
 
         img{
             width:19.1rem;
-            height: auto;
 
             position: absolute;
             left: -3rem;
@@ -83,7 +82,7 @@ export const Container = styled.div`
     }
 
     ::-webkit-scrollbar {
-        width: 0%.8rem;
+        width: 0.8rem;
     }
 
     ::-webkit-scrollbar-thumb {
@@ -146,7 +145,7 @@ export const Content = styled.div`
      line-height: 140%;
 
      color: ${({ theme }) => theme.COLORS.GRAY_200};
-     margin-bottom: 2.4rem;index: 2;
+     margin-bottom: 2.4rem;
    }
 
    swiper-container {
@@ -172,7 +171,6 @@ export const Content = styled.div`
     swiper-container::after{
       content: '';
       position: absolute;
-      
       top: 0;
       bottom: 0;
       width: 22.4rem;
@@ -195,7 +193,6 @@ export const Content = styled.div`
         transparent 0%,
         rgba(0, 0, 0, 1) 100%
       );
-      z-index: 2;
     }
 
     swiper-slide{
