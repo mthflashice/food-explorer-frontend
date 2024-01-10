@@ -13,7 +13,6 @@ export const Container = styled.div`
         margin-inline: 13.1rem;
         flex-direction: row;
         justify-content: space-between;
-        gap: 0;
 }
 `;
 
@@ -37,7 +36,6 @@ export const Brand =styled.div`
             max-width: 32.4rem;
          }
     }
-
 `;
 
 export const Form = styled.form`
@@ -69,8 +67,7 @@ export const Form = styled.form`
         line-height: 2.4rem;
     }
 
-    @media(min-width: 1024px)
-        min-width: 47.6rem;
+    @media(min-width: 1024px){
         padding: 6.4rem;
         border-radius: 1.6rem;
 
@@ -82,6 +79,7 @@ export const Form = styled.form`
             font-family: 'Poppins', sans-serif;
             font-weight: 500;
             font-size: 3.2rem;
+            line-height: 140%;
             text-align: center;
         }
     }
