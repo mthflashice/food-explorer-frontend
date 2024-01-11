@@ -6,9 +6,9 @@ export const Container = styled.div`
   display: grid;
   grid-template-rows: 11.4rem auto 7.7rem;
   grid-template-areas:
-    "header"
-    "content"
-    "footer";
+    'header'
+    'content'
+    'footer';
   
   > main {
     width: 100%;
@@ -96,7 +96,7 @@ export const Form = styled.form`
     h1 {
       margin-top: 2.4rem;
 
-      font-family: "Poppins", sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-weight: 500;
       line-height: 140%;
 
@@ -166,7 +166,7 @@ export const Image = styled.div`
     cursor: pointer;
 
     span {
-      font-family: "Poppins", sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.4rem;
       line-height: 2.4rem;
 

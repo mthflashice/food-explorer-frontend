@@ -1,5 +1,5 @@
 import { Container,Form, Image, Category } from "./styles";
-import {Header} from '../../components/Header'
+import { Header} from '../../components/Header'
 import { Menu } from "../../components/Menu"; ///
 import { Section } from "../../components/Section";
 import { FoodItem } from "../../components/FoodItem";
@@ -16,7 +16,7 @@ import { useMediaQuery } from "react-responsive";
 import { useNavigate } from 'react-router-dom';
 import { api } from '../../services/api';
 
-export function New(isNew, isAdmin){
+export function New({isAdmin}){
     const isDesktop = useMediaQuery({ minWidth: 1024 });
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -29,11 +29,15 @@ export function New(isNew, isAdmin){
     const [fileName, setFileName] = useState('');
 
     const [tags, setTags] = useState([]);
-    const [newTag, setNewTag] = useState([]);
+    const [newTag, setNewTag] = useState('');
 
     const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
+
+    function handleBack() {
+      navigate(-1);
+    }
 
     function handleImageChange(e) {
         const file = e.target.files[0];
@@ -95,7 +99,7 @@ export function New(isNew, isAdmin){
           try {
             await api.post('/dishes', formData);
             alert('Prato cadastrado com sucesso!');
-            navigate('/');
+            navigate(-1);
           } catch (error) {
             if (error.response) {
               alert(error.response.data.message);
@@ -129,12 +133,12 @@ export function New(isNew, isAdmin){
             <main>
                 <Form>
                     <header>
-                        <ButtonText>
+                        <ButtonText  onClick={handleBack}>
                             <RxCaretLeft/>
                             voltar
                         </ButtonText>
 
-                       <h1>{isNew ? 'Adicionar prato' : 'Editar prato'}</h1>
+                        <h1>Adicionar prato</h1>
                     </header>
 
                     <div>
@@ -154,7 +158,7 @@ export function New(isNew, isAdmin){
                         </Section>
 
                         <Section title = 'Nome'>
-                            <input className="name"
+                            <Input className="name"
                             placeholder="Ex.: Salada Ceasar"
                             type="text"
                             value={name}
@@ -220,25 +224,19 @@ export function New(isNew, isAdmin){
                         placeholder ='Fale brevemente sobre o prato, seus ingredientes e composição' 
                         onChange={(e) => setDescription(e.target.value)}
                     />   
-            
             </Section>
 
-            <div className="buttons">
-                {isNew &&
-                <Button title='Excluir prato' className='delete'/>}
-                <Button className='save'
+            <div className='save'>
+                <Button
                 title='Salvar alterações'
                 onClick={handleNewDish}
                 loading={loading}
             />
             </div>
-
-
             </Form>
             </main>
 
-            <Footer/>
-            
+            <Footer/> 
         </Container>
     )
 
