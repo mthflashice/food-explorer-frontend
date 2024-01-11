@@ -142,7 +142,7 @@ export function New({isAdmin}){
                     </header>
 
                     <div>
-                        <Section title ='Imagem do Prato'>
+                        <Section title ='Imagem do prato'>
                             <Image className="image">
                             <label htmlFor="image">
                                 <FiUpload size={'2.4rem'}/>
@@ -238,6 +238,6 @@ export function New({isAdmin}){
 
             <Footer/> 
         </Container>
-    )
+    );
 
 };

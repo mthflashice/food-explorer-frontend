@@ -5,7 +5,7 @@ export const Container = styled.div`
 
     display: grid;
     grid-template-rows: 11.4rem auto 7.7rem;
-    grid-template-areas: 
+    grid-template-areas:
     'header'
     'content'
     'footer';
@@ -78,14 +78,13 @@ export const Container = styled.div`
     grid-template-rows: 9.6rem auto 7.7rem;
 
     >main{
-        overflow-y: auto;
-    }
+      overflow-y: auto;
 
-    ::-webkit-scrollbar {
+      ::-webkit-scrollbar {
         width: 0.8rem;
-    }
+      }
 
-    ::-webkit-scrollbar-thumb {
+      ::-webkit-scrollbar-thumb {
         background-color: ${({ theme }) => theme.COLORS.BACKGROUND_500};
         border-radius: 0.8rem;
       }
@@ -125,12 +124,9 @@ export const Container = styled.div`
           }
         }
       }
-    
-
-}
-
+    }
+  }
 `;
-
 export const Content = styled.div`
    display: flex;
    flex-direction: column;
