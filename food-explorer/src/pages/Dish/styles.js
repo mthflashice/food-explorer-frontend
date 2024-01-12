@@ -117,8 +117,8 @@ export const Content = styled.div`
         display: flex;
         flex-direction: column;
         gap: 2.4rem;
-    
 
+        text-align: center;
     h1{
         font-family: 'Poppins', sans-serif;
         font-weight: 500;
@@ -126,7 +126,16 @@ export const Content = styled.div`
         line-height: 140%;
 
         color: ${({ theme }) => theme.COLORS.GRAY_200};
+    }
 
+    p {
+      font-family: 'Poppins', sans-serif;
+      line-height: 140%;
+
+      color: ${({ theme }) => theme.COLORS.GRAY_200};
+    }
+    
+    section{
         display: flex;
         justify-content: center;
         flex-wrap: wrap;

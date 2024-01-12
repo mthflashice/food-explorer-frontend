@@ -28,6 +28,7 @@ export function Dish(isAdmin, user_id){
     function handleBack() {
         navigate(-1);
       }
+      
       function handleEdit() {
         navigate(`/edit/${params.id}`);
       }
