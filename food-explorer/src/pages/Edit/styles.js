@@ -15,6 +15,7 @@ export const Container = styled.div`
     grid-area: content;
     justify-self: center;
   }
+
   .tags {
     display: flex;
     flex-wrap: wrap;
@@ -31,6 +32,7 @@ export const Container = styled.div`
       background-color: transparent;
     }
   }
+
   .price {
     ::-webkit-outer-spin-button,
     ::-webkit-inner-spin-button {
@@ -41,12 +43,15 @@ export const Container = styled.div`
     display: flex;
     flex-direction: row;
     gap: 3.2rem;
+
     > button {
       padding: 1.2rem 2.4rem;
     }
+
     .delete {
       background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
     }
+
     .save {
       &:disabled {
         opacity: 1;
@@ -58,11 +63,14 @@ export const Container = styled.div`
   @media (min-width: 1024px) {
     height: 100vh;
     grid-template-rows: 9.6rem auto 7.7rem;
+
     > main {
       overflow-y: auto;
+
       ::-webkit-scrollbar {
         width: 0.8rem;
       }
+
       ::-webkit-scrollbar-thumb {
         background-color: ${({ theme }) => theme.COLORS.BACKGROUND_500};
         border-radius: 0.8rem;
@@ -70,9 +78,11 @@ export const Container = styled.div`
     }
     .buttons {
       justify-content: flex-end;
+
       .delete {
         max-width: 13.5rem;
       }
+      
       .save {
         max-width: 17.2rem;
       }
@@ -86,9 +96,11 @@ export const Form = styled.form`
   gap: 2.4rem;
   width: calc(100% - 6.4rem);
   margin: 1.1rem 3.2rem 5.3rem;
+
   > header {
     display: flex;
     flex-direction: column;
+
     h1 {
       margin-top: 2.4rem;
       font-family: 'Poppins', sans-serif;
@@ -97,13 +109,16 @@ export const Form = styled.form`
       color: ${({ theme }) => theme.COLORS.GRAY_200};
     }
   }
+
   > div {
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
+
     section {
       width: 100%;
     }
+
     section input {
       background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
       border-radius: 0.8rem;
@@ -113,17 +128,21 @@ export const Form = styled.form`
     gap: 3.2rem;
     width: calc(100% - 24.8rem);
     margin: 4rem 12.4rem 11.6rem;
+
     > div {
       flex-direction: row;
       gap: 3.2rem;
+
       :first-of-type {
         section:nth-of-type(1) {
           max-width: 22.9rem;
         }
+
         section:nth-of-type(3) {
           max-width: 36.4rem;
         }
       }
+
       :nth-of-type(2) {
         section:nth-of-type(2) {
           max-width: 25.1rem;
@@ -139,13 +158,16 @@ export const Image = styled.div`
   position: relative;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
   color: ${({ theme }) => theme.COLORS.WHITE};
+
   &:focus-within {
     outline: 1px solid ${({ theme }) => theme.COLORS.WHITE};
   }
+
   > label {
     display: flex;
     gap: 0.8rem;
     cursor: pointer;
+
     span {
       font-family: 'Poppins', sans-serif;
       font-size: 1.4rem;
@@ -187,6 +209,7 @@ export const Image = styled.div`
 export const Category = styled.div`
   > label {
     position: relative;
+
     select {
       border: none;
       -webkit-appearance: none;
@@ -213,6 +236,7 @@ export const Category = styled.div`
       pointer-events: none;
       transition: filter 0.2s;
     }
+    
     &:hover {
       svg {
         filter: brightness(0.9);
