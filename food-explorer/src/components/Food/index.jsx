@@ -103,8 +103,7 @@ export function Food({ data, isAdmin, isFavorite, updateFavorite, handleDetails,
             </Title>
 
             {isDesktop && <p>{data.description}</p>}
-            <span>R$ {data.price.toLocaleSting('pt-BR', { minimumFractionDigits: 2 })}</span>
-
+            <span>R$ {data.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
             {!isAdmin &&
             <Order>
                 <NumberPicker number={number} setNumber={setNumber}/>
