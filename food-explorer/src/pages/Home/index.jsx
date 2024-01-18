@@ -156,7 +156,6 @@ export function Home({ isAdmin, user_id }) {
                       <Food 
                         isAdmin={isAdmin}
                         data={dish}
-                        onClick={() => handleDetails(dish.id)}
                         isFavorite={favorites.includes(dish.id)}
                         updateFavorite={updateFavorite} 
                         user_id={user_id}
@@ -211,7 +210,6 @@ export function Home({ isAdmin, user_id }) {
                       <Food 
                         isAdmin={isAdmin}
                         data={dish} 
-                        onClick={() => handleDetails(dish.id)}
                         isFavorite={favorites.includes(dish.id)}
                         updateFavorite={updateFavorite}
                         user_id={user_id}

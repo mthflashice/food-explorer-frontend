@@ -60,8 +60,6 @@ export function Food({ data, isAdmin, isFavorite, updateFavorite, handleDetails,
         setCartId(createdCart.id);
       }
 
-      alert('Prato adicionado ao carrinho!');
-
       await api.post('/carts', { cart_items: [cartItem] })
       alert('Prato adicionado ao carrinho!');
     } catch (error) {
