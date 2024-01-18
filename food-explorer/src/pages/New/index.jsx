@@ -176,7 +176,7 @@ export function New({isAdmin}){
                                     >
                                         <option value=''>Selecionar</option>
                                         <option value='meal'>Refeição</option>
-                                        <option value='desert'>Sobremesa</option>
+                                        <option value='dessert'>Sobremesa</option>
                                         <option value='beverage'>Bebida</option>
                                     </select>
                                     <RiArrowDownSLine size={'2.4rem'}/>
