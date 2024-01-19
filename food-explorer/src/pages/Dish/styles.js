@@ -11,53 +11,54 @@ export const Container = styled.div`
         'content'
         'footer';
 
-        >main{
-            grid-area: content;
-            justify-self: center;
+        main {
+    grid-area: content;
+    justify-self: center;
 
-            > div {
-             width: calc(100% - 11.2rem);
-             margin: 3.2rem 5.6rem 4.9rem;
-        }
+    > div {
+      width: calc(100% - 11.2rem);
+      margin: 3.2rem 5.6rem 4.9rem;
     }
+  }
 
-        .buttons{
-            display: flex;
-            justify-content: center;
-            gap: 1.6rem;
-            margin-top: 2.4rem;
-        }
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.6rem;
+    margin-top: 2.4rem;
+  }
 
-        .edit{
-            padding: 1.2px 24px;
-        }
+  .edit {
+    padding: 1.2rem 2.4rem;
+  }
 
-        .include{
-            max-width: 18.8rem;
-            gap: 0.5rem;
-            border-radius:0.3rem;
-            padding: 0.8rem 4.3rem;
+  .include {
+    max-width: 18.8rem;
+    gap: 0.5rem;
+    border-radius: 0.3rem;
+    padding: 0.8rem;
 
-            font-size: 9.46px;
-            line-height: 1.6rem;
+    font-size: 0.9rem;
+    line-height: 1.6rem;
 
-            svg{
-                width: 2.1rem;
-                height: 2.1rem;
-            }
-        }
-        @media (min-width: 375px){
-            .buttons{
-            div svg,
-            div span{
+    svg {
+      width: 2.2rem; 
+      height: auto;
+    }
+  }
+
+ @media (min-width: 375px) {
+     .buttons {
+        div svg, 
+        div span {
                 font-weight: 700;
-                font-size: 2.2px;
+                font-size: 2.2rem;
                 line-height: 160%;
             }
         }
         }
 
-        @media (min-width: 1024px) {
+ @media (min-width: 1024px) {
             height: 100vh;
             grid-template-rows: 9.6rem auto 7.7rem;
 
@@ -110,7 +111,6 @@ export const Content = styled.div`
     >img{
         width: 100%;
         max-width: 26.4rem;
-        height:auto;
     }
 
     >div{
@@ -168,7 +168,7 @@ export const Content = styled.div`
         
 
         h1{
-            font-size: 40px;
+            font-size: 4rem;
         }
 
         p{

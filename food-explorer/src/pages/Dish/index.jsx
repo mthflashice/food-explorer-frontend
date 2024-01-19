@@ -12,7 +12,7 @@ import { Button } from '../../components/Button';
 import {Menu} from '../../components/Menu' 
 import { api } from '../../services/api';
 
-export function Dish(isAdmin, user_id){
+export function Dish({ isAdmin, user_id }) {
     const isDesktop = useMediaQuery({ minWidth: 1024 });
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [data, setData] = useState(null);
