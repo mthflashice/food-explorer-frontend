@@ -24,7 +24,7 @@ export const Container = styled.div`
 
         width: calc(100% - 5.6rem);
         margin: 3.6rem 2.8rem 1.4rem;
-    }
+    
 
     >div{
         margin-bottom: 3.6rem;
@@ -40,5 +40,6 @@ export const Container = styled.div`
         border-bottom: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_400};
 
         font-weight: 300;
+    }
     }
     `;
