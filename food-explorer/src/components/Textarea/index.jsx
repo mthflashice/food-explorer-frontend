@@ -2,7 +2,7 @@ import {Container} from './styles'
 
 export function Textarea ({value, ...rest}){
     return(
-        <Container{...rest}>
+        <Container {...rest}>
             {value}
         </Container>
     );
