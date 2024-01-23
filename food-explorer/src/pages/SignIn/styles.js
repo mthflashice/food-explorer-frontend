@@ -10,7 +10,7 @@ export const Container = styled.div`
     justify-content: center;
     gap: 7.3rem;
 
-    @media(min-width: 1024){
+    @media(min-width: 1024px){
         margin-inline: 13.1rem;
         flex-direction: row;
         justify-content: space-between;
@@ -28,7 +28,7 @@ export const Brand =styled.div`
         max-width: 27.8rem;
     }
 
-    @media(min-width: 1024){
+    @media(min-width: 1024px){
         justify-content: initial;
          margin-inline: 0;
 
@@ -67,7 +67,7 @@ export const Form = styled.form`
         line-height: 2.4rem;
     }
 
-    @media(min-width: 1024){
+    @media(min-width: 1024px){
         padding: 6.4rem;
         border-radius: 1.6rem;
 

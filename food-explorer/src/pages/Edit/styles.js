@@ -39,6 +39,7 @@ export const Container = styled.div`
       -webkit-appearance: none;
     }
   }
+  
   .buttons {
     display: flex;
     flex-direction: row;

@@ -28,7 +28,7 @@ export const Brand =styled.div`
         max-width: 27.8rem;
     }
 
-    @media(min-width: 1024){
+    @media(min-width: 1024px){
          justify-content: initial;
          margin-inline: 0;
 
