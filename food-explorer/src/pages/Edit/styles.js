@@ -28,6 +28,7 @@ export const Container = styled.div`
     &:focus-within {
       outline: 1px solid ${({ theme }) => theme.COLORS.WHITE};
     }
+    
     input {
       background-color: transparent;
     }
@@ -95,6 +96,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
+
   width: calc(100% - 6.4rem);
   margin: 1.1rem 3.2rem 5.3rem;
 
@@ -104,9 +106,11 @@ export const Form = styled.form`
 
     h1 {
       margin-top: 2.4rem;
-      font-family: 'Poppins', sans-serif;
+
+      font-family: "Poppins", sans-serif;
       font-weight: 500;
       line-height: 140%;
+
       color: ${({ theme }) => theme.COLORS.GRAY_200};
     }
   }
@@ -125,8 +129,10 @@ export const Form = styled.form`
       border-radius: 0.8rem;
     }
   }
+
   @media (min-width: 1024px) {
     gap: 3.2rem;
+
     width: calc(100% - 24.8rem);
     margin: 4rem 12.4rem 11.6rem;
 
@@ -137,6 +143,7 @@ export const Form = styled.form`
       :first-of-type {
         section:nth-of-type(1) {
           max-width: 22.9rem;
+          background-color:red;
         }
 
         section:nth-of-type(3) {
