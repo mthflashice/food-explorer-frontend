@@ -107,7 +107,7 @@ export const Form = styled.form`
     h1 {
       margin-top: 2.4rem;
 
-      font-family: "Poppins", sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-weight: 500;
       line-height: 140%;
 
