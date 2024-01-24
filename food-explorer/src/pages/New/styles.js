@@ -208,9 +208,8 @@ export const Image = styled.div`
     }
   }
 `;
-
-export const Category =styled.div`
-     > label {
+export const Category = styled.div`
+  > label {
     position: relative;
 
     select {
