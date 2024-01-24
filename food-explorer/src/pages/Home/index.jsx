@@ -2,7 +2,7 @@ import {Container, Content} from './styles'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { Food } from '../../components/Food';
-import { Menu } from '../../components/Header/styles';
+import { Menu } from '../../components/Menu';
 import { Section } from '../../components/Section'
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -109,22 +109,22 @@ export function Home({ isAdmin, user_id }) {
   
     return (
       <Container>
-        {!isDesktop && 
-          <Menu
-           isAdmin={isAdmin} 
-           isMenuOpen={isMenuOpen} 
-           setIsMenuOpen={setIsMenuOpen} 
-           setSearch={setSearch}
-          />
-        }
-  
-        <Header 
-         isAdmin={isAdmin}
-         isMenuOpen={isMenuOpen}
-         setIsMenuOpen={setIsMenuOpen}
-         setSearch={setSearch} 
-         />
-  
+         {!isDesktop && 
+        <Menu 
+          isAdmin={isAdmin} 
+          isMenuOpen={isMenuOpen} 
+          setIsMenuOpen={setIsMenuOpen} 
+          setSearch={setSearch}
+        />
+      }
+
+      <Header 
+        isAdmin={isAdmin} 
+        isMenuOpen={isMenuOpen} 
+        setIsMenuOpen={setIsMenuOpen} 
+        setSearch={setSearch}
+      />
+    
         <main>
           <div>
             <header>
