@@ -28,7 +28,7 @@ export const Container = styled.div`
     &:focus-within {
       outline: 1px solid ${({ theme }) => theme.COLORS.WHITE};
     }
-    
+
     input {
       background-color: transparent;
     }
@@ -40,7 +40,7 @@ export const Container = styled.div`
       -webkit-appearance: none;
     }
   }
-  
+
   .buttons {
     display: flex;
     flex-direction: row;
@@ -78,13 +78,14 @@ export const Container = styled.div`
         border-radius: 0.8rem;
       }
     }
+
     .buttons {
       justify-content: flex-end;
 
       .delete {
         max-width: 13.5rem;
       }
-      
+
       .save {
         max-width: 17.2rem;
       }
@@ -143,7 +144,6 @@ export const Form = styled.form`
       :first-of-type {
         section:nth-of-type(1) {
           max-width: 22.9rem;
-          background-color:red;
         }
 
         section:nth-of-type(3) {
@@ -164,6 +164,7 @@ export const Image = styled.div`
   padding: 1.2rem 3.2rem;
   border-radius: 0.8rem;
   position: relative;
+
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
   color: ${({ theme }) => theme.COLORS.WHITE};
 
@@ -184,33 +185,38 @@ export const Image = styled.div`
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+
       max-width: calc(100vw - 16rem);
     }
+
     input {
       position: absolute;
       right: 0;
       z-index: -1;
       width: 100%;
     }
+
     svg, span {
       transition: filter 0.2s;
     }
+
     &:hover {
       svg, span {
         filter: brightness(0.9);
       }
     }
   }
+
   @media (min-width: 1024px) {
     > label {
-    span {
-      max-width: 13.3rem;
+      span {
+        max-width: 13.3rem;
+      }
+      
+      input {
+        max-width: 22.9rem;
+      }
     }
-    
-    input {
-      max-width: 22.9rem;
-    }
-   }
   }
 `;
 
@@ -240,11 +246,12 @@ export const Category = styled.div`
       position: absolute;
       top: 0;
       right: 1.6rem;
+
       cursor: pointer;
       pointer-events: none;
       transition: filter 0.2s;
     }
-    
+
     &:hover {
       svg {
         filter: brightness(0.9);
