@@ -12,9 +12,9 @@ import  brand  from '../../assets/brand.svg';
 import  brandAdmin  from '../../assets/brand-admin.svg'
 import brandMobile from '../../assets/brand-mobile.svg'
 
-export function Header({ isAdmin, isDisabled, $ismenuOpen, setIsMenuOpen, setSearch }){
+export function Header({ $Isadmin, isDisabled, $ismenuOpen, setIsMenuOpen, setSearch }){
     const isDesktop = useMediaQuery({ minWidth: 1024 });
-    const logo = isAdmin ? (isDesktop ? brandAdmin : brandMobile) : brand;
+    const logo = $Isadmin ? (isDesktop ? brandAdmin : brandMobile) : brand;
 
     const { signOut } = useAuth();
     const navigate = useNavigate();
@@ -59,7 +59,7 @@ export function Header({ isAdmin, isDisabled, $ismenuOpen, setIsMenuOpen, setSea
             <button className='favorites' onClick={handleFavorites}>Meus favoritos</button>
           }
 
-          {isAdmin ? 
+          {$Isadmin ? 
             (isDesktop && <Button className='new' title='Novo prato' onClick={handleNew} />) :
             <Button className='orders' title={isDesktop ? 'Pedidos' : undefined} isCustomer orderCount={0} />
                         }

@@ -5,13 +5,13 @@ import { useAuth } from '../hooks/auth';
 
 export function Routes() {
     const { user, isUserAuthenticated } = useAuth();
-    const isAdmin = user ? user.is_admin : false;
+    const $Isadmin = user ? user.is_admin : false;
 
     const userAuthenticated = isUserAuthenticated();
     
     return (
         <BrowserRouter>
-         {(user && userAuthenticated) ? <AppRoutes isAdmin={isAdmin} /> : <AuthRoutes />}
+         {(user && userAuthenticated) ? <AppRoutes $Isadmin={$Isadmin} /> : <AuthRoutes />}
         </BrowserRouter>
     );
 }

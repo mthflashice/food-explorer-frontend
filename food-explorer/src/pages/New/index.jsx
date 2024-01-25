@@ -16,7 +16,7 @@ import { useMediaQuery } from "react-responsive";
 import { useNavigate } from 'react-router-dom';
 import { api } from '../../services/api';
 
-export function New({isAdmin}){
+export function New({$Isadmin}){
     const isDesktop = useMediaQuery({ minWidth: 1024 });
     const [$ismenuOpen, setIsMenuOpen] = useState(false);
 
@@ -116,7 +116,7 @@ export function New({isAdmin}){
         <Container>
             {!isDesktop &&
             <Menu 
-            isAdmin={isAdmin}
+            $Isadmin={$Isadmin}
             isDisabled={true} 
             $ismenuOpen={$ismenuOpen} 
             setIsMenuOpen={setIsMenuOpen}
@@ -125,7 +125,7 @@ export function New({isAdmin}){
             }
 
             <Header 
-            isAdmin={isAdmin} 
+            $Isadmin={$Isadmin} 
             isDisabled={true}
             $ismenuOpen={$ismenuOpen} 
             setIsMenuOpen={setIsMenuOpen} />

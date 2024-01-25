@@ -13,7 +13,7 @@ import { ButtonText } from "../../components/ButtonText";
 import { Favorite } from '../../components/Favorite';
 import { Footer } from '../../components/Footer';
 
-export function Favorites({ isAdmin }) {
+export function Favorites({ $Isadmin }) {
     const isDesktop = useMediaQuery({ minWidth: 1024 });
   
     const [$ismenuOpen, setIsMenuOpen] = useState(false);
@@ -54,14 +54,14 @@ export function Favorites({ isAdmin }) {
       <Container>
         {!isDesktop && 
           <Menu 
-            isAdmin={isAdmin} 
+            $Isadmin={$Isadmin} 
             $ismenuOpen={$ismenuOpen} 
             setIsMenuOpen={setIsMenuOpen} 
           />
         }
   
         <Header 
-          isAdmin={isAdmin} 
+          $Isadmin={$Isadmin} 
           $ismenuOpen={$ismenuOpen} 
           setIsMenuOpen={setIsMenuOpen} 
         />

@@ -10,7 +10,7 @@ import { api } from '../../services/api';
 import { useState } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
 
-export function Food({ data, isAdmin, isFavorite, updateFavorite, handleDetails, user_id, ...rest }){
+export function Food({ data, $Isadmin, isFavorite, updateFavorite, handleDetails, user_id, ...rest }){
     const isDesktop = useMediaQuery({ minWidth: 1024 });
 
     const params = useParams();
@@ -75,8 +75,8 @@ export function Food({ data, isAdmin, isFavorite, updateFavorite, handleDetails,
   }
     
     return(
-        <Container {...rest} isAdmin={isAdmin}>
-            {isAdmin? (
+        <Container {...rest} $Isadmin={$Isadmin}>
+            {$Isadmin? (
             <BiPencil size={'2.4rem'} onClick={handleEdit}/>
             ) : (
                 <FiHeart
@@ -102,7 +102,7 @@ export function Food({ data, isAdmin, isFavorite, updateFavorite, handleDetails,
 
             {isDesktop && <p>{data.description}</p>}
             <span>R$ {data.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
-            {!isAdmin &&
+            {!$Isadmin &&
             <Order>
                 <NumberPicker number={number} setNumber={setNumber}/>
                 <Button title='incluir' onClick={handleInclude}loading={loading} />

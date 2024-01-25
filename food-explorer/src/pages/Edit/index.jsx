@@ -21,7 +21,7 @@ import { Textarea } from '../../components/Textarea';
 import { Button } from '../../components/Button';
 import { Footer } from '../../components/Footer';
 
-export function Edit({ isAdmin }) {
+export function Edit({ $Isadmin }) {
     const isDesktop = useMediaQuery({ minWidth: 1024 });
     const [$ismenuOpen, setIsMenuOpen] = useState(false);
   
@@ -182,7 +182,7 @@ export function Edit({ isAdmin }) {
         <Container>
           {!isDesktop && 
             <Menu
-             isAdmin={isAdmin} 
+             $Isadmin={$Isadmin} 
              isDisabled={true}
              $ismenuOpen={$ismenuOpen} 
              setIsMenuOpen={setIsMenuOpen} 
@@ -190,7 +190,7 @@ export function Edit({ isAdmin }) {
           }
     
           <Header 
-          isAdmin={isAdmin} 
+          $Isadmin={$Isadmin} 
           isDisabled={true}
           $ismenuOpen={$ismenuOpen} 
           setIsMenuOpen={setIsMenuOpen} 

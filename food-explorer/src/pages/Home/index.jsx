@@ -14,7 +14,7 @@ import {register} from 'swiper/element/bundle'
 
 register ();
 
-export function Home({ isAdmin, user_id }) {
+export function Home({ $Isadmin, user_id }) {
     const swiperElRef1 = useRef(null);
     const swiperElRef2 = useRef(null);
     const swiperElRef3 = useRef(null);
@@ -111,7 +111,7 @@ export function Home({ isAdmin, user_id }) {
       <Container>
          {!isDesktop && 
         <Menu 
-          isAdmin={isAdmin} 
+          $Isadmin={$Isadmin} 
           $ismenuOpen={$ismenuOpen} 
           setIsMenuOpen={setIsMenuOpen} 
           setSearch={setSearch}
@@ -119,7 +119,7 @@ export function Home({ isAdmin, user_id }) {
       }
 
       <Header 
-        isAdmin={isAdmin} 
+        $Isadmin={$Isadmin} 
         $ismenuOpen={$ismenuOpen} 
         setIsMenuOpen={setIsMenuOpen} 
         setSearch={setSearch}
@@ -155,7 +155,7 @@ export function Home({ isAdmin, user_id }) {
                   dishes.meals.map(dish => (
                     <swiper-slide key={String(dish.id)}>
                       <Food 
-                        isAdmin={isAdmin}
+                        $Isadmin={$Isadmin}
                         data={dish}
                         isFavorite={favorites.includes(dish.id)}
                         updateFavorite={updateFavorite} 
@@ -183,7 +183,7 @@ export function Home({ isAdmin, user_id }) {
                   dishes.desserts.map(dish => (
                     <swiper-slide key={String(dish.id)}>
                       <Food 
-                        isAdmin={isAdmin}
+                        $Isadmin={$Isadmin}
                         data={dish}
                         isFavorite={favorites.includes(dish.id)}
                         updateFavorite={updateFavorite} 
@@ -210,7 +210,7 @@ export function Home({ isAdmin, user_id }) {
                   dishes.beverages.map(dish => (
                     <swiper-slide key={String(dish.id)}>
                       <Food 
-                        isAdmin={isAdmin}
+                        $Isadmin={$Isadmin}
                         data={dish} 
                         isFavorite={favorites.includes(dish.id)}
                         updateFavorite={updateFavorite}

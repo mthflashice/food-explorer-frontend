@@ -12,7 +12,7 @@ import { Button } from '../../components/Button';
 import {Menu} from '../../components/Menu' 
 import { api } from '../../services/api';
 
-export function Dish({ isAdmin, user_id }) {
+export function Dish({ $Isadmin, user_id }) {
     const isDesktop = useMediaQuery({ minWidth: 1024 });
     const [$ismenuOpen, setIsMenuOpen] = useState(false);
     const [data, setData] = useState(null);
@@ -81,7 +81,7 @@ export function Dish({ isAdmin, user_id }) {
         <Container>
             {!isDesktop && 
         <Menu 
-        isAdmin={isAdmin} 
+        $Isadmin={$Isadmin} 
         isDisabled={true} 
         $ismenuOpen={$ismenuOpen} 
         setIsMenuOpen={setIsMenuOpen} 
@@ -89,7 +89,7 @@ export function Dish({ isAdmin, user_id }) {
       }
 
       <Header 
-      isAdmin={isAdmin} 
+      $Isadmin={$Isadmin} 
       isDisabled={true} 
       $ismenuOpen={$ismenuOpen} 
       setIsMenuOpen={setIsMenuOpen} 
@@ -129,7 +129,7 @@ export function Dish({ isAdmin, user_id }) {
                 }
 
                 <div className='buttons'>
-                  {isAdmin ? 
+                  {$Isadmin ? 
                     <Button 
                     title='Editar prato' 
                     className='edit'

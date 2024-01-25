@@ -6,7 +6,7 @@ import { Header } from '../../components/Header';
 import { Search } from '../Search';
 import { ButtonText } from '../ButtonText';
 
-export function Menu({ isAdmin, $ismenuOpen, setIsMenuOpen, setSearch, isDisabled }) {
+export function Menu({ $Isadmin, $ismenuOpen, setIsMenuOpen, setSearch, isDisabled }) {
     const { signOut } = useAuth();
     const navigate = useNavigate();
   
@@ -24,12 +24,12 @@ export function Menu({ isAdmin, $ismenuOpen, setIsMenuOpen, setSearch, isDisable
     }
     return(
         <Container $ismenuOpen={$ismenuOpen}>
-            <Header isAdmin={isAdmin} $ismenuOpen={$ismenuOpen} setIsMenuOpen={setIsMenuOpen}/>
+            <Header $Isadmin={$Isadmin} $ismenuOpen={$ismenuOpen} setIsMenuOpen={setIsMenuOpen}/>
 
             <main>
                 <Search isDisabled={isDisabled} setSearch={setSearch} />
 
-                {isAdmin ? (
+                {$Isadmin ? (
                 <ButtonText onClick={handleNew}>
                     Novo Prato
                     </ButtonText>

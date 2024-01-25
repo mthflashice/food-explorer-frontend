@@ -29,7 +29,7 @@ export const Container =styled.div`
 
     >img{
         max-width: 88px;
-        margin-top: ${({ isAdmin }) => isAdmin ? '4.6rem' : 'none'};   
+        margin-top: ${({ $Isadmin }) => $Isadmin ? '4.6rem' : 'none'};   
         
         cursor: pointer;
     }
@@ -38,7 +38,7 @@ export const Container =styled.div`
         line-height: 100%;
         color: ${({ theme }) => theme.COLORS.LIGHT_BLUE};
         
-        margin-bottom:${({isAdmin})=>isAdmin?'4.6rem' : 'none'};     
+        margin-bottom:${({$Isadmin})=>$Isadmin?'4.6rem' : 'none'};     
     }
 
     @media (min-width: 1024px) {
@@ -52,7 +52,7 @@ export const Container =styled.div`
 
         >img{
             max-width: 17.6rem;
-            margin-top: ${({ isAdmin }) => isAdmin ? '3.2rem' : 'none'};
+            margin-top: ${({ $Isadmin }) => $Isadmin ? '3.2rem' : 'none'};
     }
         >p{
             font-size: 1.4rem;
@@ -67,7 +67,7 @@ export const Container =styled.div`
       font-size: 3.2rem;
       line-height: 160%;
 
-      margin-bottom: ${({ isAdmin }) => isAdmin ? '3.2rem' : 'none'};
+      margin-bottom: ${({ $Isadmin }) => $Isadmin ? '3.2rem' : 'none'};
     }
   }
 `;
