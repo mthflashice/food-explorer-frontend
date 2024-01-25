@@ -23,7 +23,7 @@ import { Footer } from '../../components/Footer';
 
 export function Edit({ isAdmin }) {
     const isDesktop = useMediaQuery({ minWidth: 1024 });
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [$ismenuOpen, setIsMenuOpen] = useState(false);
   
     const [dish, setDish] = useState(null);
   
@@ -184,7 +184,7 @@ export function Edit({ isAdmin }) {
             <Menu
              isAdmin={isAdmin} 
              isDisabled={true}
-             isMenuOpen={isMenuOpen} 
+             $ismenuOpen={$ismenuOpen} 
              setIsMenuOpen={setIsMenuOpen} 
              />
           }
@@ -192,7 +192,7 @@ export function Edit({ isAdmin }) {
           <Header 
           isAdmin={isAdmin} 
           isDisabled={true}
-          isMenuOpen={isMenuOpen} 
+          $ismenuOpen={$ismenuOpen} 
           setIsMenuOpen={setIsMenuOpen} 
           />
     
@@ -266,7 +266,7 @@ export function Edit({ isAdmin }) {
                     }
     
                     <FoodItem
-                      isNew
+                      $isnew
                       placeholder='Adicionar'
                       onChange={(e) => setNewTag(e.target.value)}
                       value={newTag}

@@ -16,7 +16,7 @@ import { Footer } from '../../components/Footer';
 export function Favorites({ isAdmin }) {
     const isDesktop = useMediaQuery({ minWidth: 1024 });
   
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [$ismenuOpen, setIsMenuOpen] = useState(false);
     const [favorites, setFavorites] = useState([]);
   
     const navigate = useNavigate();
@@ -55,14 +55,14 @@ export function Favorites({ isAdmin }) {
         {!isDesktop && 
           <Menu 
             isAdmin={isAdmin} 
-            isMenuOpen={isMenuOpen} 
+            $ismenuOpen={$ismenuOpen} 
             setIsMenuOpen={setIsMenuOpen} 
           />
         }
   
         <Header 
           isAdmin={isAdmin} 
-          isMenuOpen={isMenuOpen} 
+          $ismenuOpen={$ismenuOpen} 
           setIsMenuOpen={setIsMenuOpen} 
         />
   

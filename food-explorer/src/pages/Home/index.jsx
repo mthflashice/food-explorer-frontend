@@ -20,7 +20,7 @@ export function Home({ isAdmin, user_id }) {
     const swiperElRef3 = useRef(null);
   
     const isDesktop = useMediaQuery({ minWidth: 1024 });
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [$ismenuOpen, setIsMenuOpen] = useState(false);
   
   
     useEffect(() => {
@@ -112,7 +112,7 @@ export function Home({ isAdmin, user_id }) {
          {!isDesktop && 
         <Menu 
           isAdmin={isAdmin} 
-          isMenuOpen={isMenuOpen} 
+          $ismenuOpen={$ismenuOpen} 
           setIsMenuOpen={setIsMenuOpen} 
           setSearch={setSearch}
         />
@@ -120,7 +120,7 @@ export function Home({ isAdmin, user_id }) {
 
       <Header 
         isAdmin={isAdmin} 
-        isMenuOpen={isMenuOpen} 
+        $ismenuOpen={$ismenuOpen} 
         setIsMenuOpen={setIsMenuOpen} 
         setSearch={setSearch}
       />
@@ -142,6 +142,7 @@ export function Home({ isAdmin, user_id }) {
             <Content>
                <Section title='Refeições'>
               <swiper-container
+                class Name ='swiper-container'
                 key={isDesktop}
                 ref={swiperElRef1}
                 space-between={isDesktop ? '27' : '16'}
@@ -169,6 +170,7 @@ export function Home({ isAdmin, user_id }) {
 
             <Section title='Sobremesas'>
               <swiper-container
+              // class="swiper-button-prev"
                 key={isDesktop}
                 ref={swiperElRef2}
                 space-between={isDesktop ? '27' : '16'}

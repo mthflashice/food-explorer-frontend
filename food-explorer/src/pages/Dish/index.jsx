@@ -14,7 +14,7 @@ import { api } from '../../services/api';
 
 export function Dish({ isAdmin, user_id }) {
     const isDesktop = useMediaQuery({ minWidth: 1024 });
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [$ismenuOpen, setIsMenuOpen] = useState(false);
     const [data, setData] = useState(null);
 
     const params = useParams();
@@ -83,7 +83,7 @@ export function Dish({ isAdmin, user_id }) {
         <Menu 
         isAdmin={isAdmin} 
         isDisabled={true} 
-        isMenuOpen={isMenuOpen} 
+        $ismenuOpen={$ismenuOpen} 
         setIsMenuOpen={setIsMenuOpen} 
         />
       }
@@ -91,7 +91,7 @@ export function Dish({ isAdmin, user_id }) {
       <Header 
       isAdmin={isAdmin} 
       isDisabled={true} 
-      isMenuOpen={isMenuOpen} 
+      $ismenuOpen={$ismenuOpen} 
       setIsMenuOpen={setIsMenuOpen} 
       />
            

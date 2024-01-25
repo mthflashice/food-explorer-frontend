@@ -18,7 +18,7 @@ import { api } from '../../services/api';
 
 export function New({isAdmin}){
     const isDesktop = useMediaQuery({ minWidth: 1024 });
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [$ismenuOpen, setIsMenuOpen] = useState(false);
 
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
@@ -118,7 +118,7 @@ export function New({isAdmin}){
             <Menu 
             isAdmin={isAdmin}
             isDisabled={true} 
-            isMenuOpen={isMenuOpen} 
+            $ismenuOpen={$ismenuOpen} 
             setIsMenuOpen={setIsMenuOpen}
             
             />
@@ -127,7 +127,7 @@ export function New({isAdmin}){
             <Header 
             isAdmin={isAdmin} 
             isDisabled={true}
-            isMenuOpen={isMenuOpen} 
+            $ismenuOpen={$ismenuOpen} 
             setIsMenuOpen={setIsMenuOpen} />
 
             <main>
@@ -199,7 +199,7 @@ export function New({isAdmin}){
                 }
 
                 <FoodItem
-                isNew
+                $isnew
                 placeholder='Adicionar'
                 onChange={(e) => setNewTag(e.target.value)}
                 value={newTag}

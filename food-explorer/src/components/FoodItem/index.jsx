@@ -1,20 +1,20 @@
 import {FiPlus,FiX } from 'react-icons/fi'
 import { Container } from './styles'
 
-export function FoodItem ({isNew, value, onClick, ...rest}){
+export function FoodItem ({$isnew, value, onClick, ...rest}){
     return(
-        <Container isNew={isNew}>
+        <Container $isnew={$isnew}>
             <input type='text'
              value = {value}
-              readOnly={!isNew}
+              readOnly={!$isnew}
                {...rest}/>
 
                <button
                type='button'
                onClick={onClick}
-               className={isNew ? 'button-add' : 'button-delete'}
+               className={$isnew ? 'button-add' : 'button-delete'}
                >
-                {isNew? <FiPlus/> : <FiX/>}
+                {$isnew? <FiPlus/> : <FiX/>}
                </button>
         </Container>
     );

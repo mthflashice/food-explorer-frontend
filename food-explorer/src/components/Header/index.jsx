@@ -12,7 +12,7 @@ import  brand  from '../../assets/brand.svg';
 import  brandAdmin  from '../../assets/brand-admin.svg'
 import brandMobile from '../../assets/brand-mobile.svg'
 
-export function Header({ isAdmin, isDisabled, isMenuOpen, setIsMenuOpen, setSearch }){
+export function Header({ isAdmin, isDisabled, $ismenuOpen, setIsMenuOpen, setSearch }){
     const isDesktop = useMediaQuery({ minWidth: 1024 });
     const logo = isAdmin ? (isDesktop ? brandAdmin : brandMobile) : brand;
 
@@ -36,7 +36,7 @@ export function Header({ isAdmin, isDisabled, isMenuOpen, setIsMenuOpen, setSear
         <Container>
             {!isDesktop && (
                 <Menu>
-                     {!isMenuOpen ?
+                     {!$ismenuOpen ?
                         <FiMenu className='fi-menu-icon' onClick={()=>
                         setIsMenuOpen(true)}/>:
                         <>
@@ -47,7 +47,7 @@ export function Header({ isAdmin, isDisabled, isMenuOpen, setIsMenuOpen, setSear
                 </Menu>
                 )}
 
-                {(isDesktop || isMenuOpen) && (
+                {(isDesktop || $ismenuOpen) && (
                     <>
                       <Brand>
                       <img src={logo} alt='Logo'/>
