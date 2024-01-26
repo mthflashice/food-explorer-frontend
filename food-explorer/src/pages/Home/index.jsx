@@ -4,15 +4,16 @@ import { Footer } from '../../components/Footer'
 import { Food } from '../../components/Food';
 import { Menu } from '../../components/Menu';
 import { Section } from '../../components/Section'
+
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import { api } from '../../services/api';
+
 import bannerMobile from '../../assets/banner-mobile.png'
 import homeBanner from '../../assets/home-banner.png';
-import {register} from 'swiper/element/bundle'
 
-register ();
+import {register} from 'swiper/element/bundle'
 
 export function Home({ $Isadmin, user_id }) {
     const swiperElRef1 = useRef(null);
@@ -21,7 +22,8 @@ export function Home({ $Isadmin, user_id }) {
   
     const isDesktop = useMediaQuery({ minWidth: 1024 });
     const [$ismenuOpen, setIsMenuOpen] = useState(false);
-  
+
+    register ();
   
     useEffect(() => {
       const options = {
@@ -148,6 +150,8 @@ export function Home({ $Isadmin, user_id }) {
                 space-between={isDesktop ? '27' : '16'}
                 slides-per-view='auto'
                 navigation={isDesktop ? 'true' : 'false'}
+                nextEl={'.swiper-button-next'}
+               prevEl={'.swiper-button-prev'}
                 loop='true'
                 grab-cursor='true'
               >
@@ -170,7 +174,6 @@ export function Home({ $Isadmin, user_id }) {
 
             <Section title='Sobremesas'>
               <swiper-container
-              // class="swiper-button-prev"
                 key={isDesktop}
                 ref={swiperElRef2}
                 space-between={isDesktop ? '27' : '16'}
