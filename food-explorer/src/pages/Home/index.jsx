@@ -145,13 +145,12 @@ export function Home({ $Isadmin, user_id }) {
                <Section title='Refeições'>
               <swiper-container
                 class Name ='swiper-container'
+                // Effect={'cards'}
                 key={isDesktop}
                 ref={swiperElRef1}
                 space-between={isDesktop ? '27' : '16'}
                 slides-per-view='auto'
-                navigation={isDesktop ? 'true' : 'false'}
-                nextEl={'.swiper-button-next'}
-               prevEl={'.swiper-button-prev'}
+                navigation={isDesktop ? 'true'  : 'false'}
                 loop='true'
                 grab-cursor='true'
               >
