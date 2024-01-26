@@ -81,6 +81,10 @@ export const Container = styled.div`
         width: 0.8rem;
       }
 
+      ::-webkit-scrollbar-track{
+        color:${({ theme }) => theme.COLORS.BACKGROUND_500};
+      }
+
       ::-webkit-scrollbar-thumb {
         background-color: ${({ theme }) => theme.COLORS.BACKGROUND_500};
         border-radius: 0.8rem;
