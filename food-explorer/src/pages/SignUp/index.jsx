@@ -7,7 +7,7 @@ import { Section } from '../../components/Section';
 import brand from '../../assets/brand.svg'
 import { useState } from 'react';
 
-
+import Swal from 'sweetalert2'
 
 
 export function SignUp (){
@@ -20,15 +20,34 @@ export function SignUp (){
 
     function handleSignUp() {
         if (!name || !email || !password) {
-            return alert('Preencha todos os campos!');
+          return Swal.fire({
+            position: 'center',
+            icon: 'warning',
+            title: 'Preencha todos os campos!',
+            showConfirmButton: false,
+            timer: 4500
+          });
     }
 
     if (!/\S+@\S+\.\S+/.test(email)) {
-        return alert('Digite um e-mail válido!');
+        
+        return Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Digite um e-mail válido!',
+          showConfirmButton: false,
+          timer: 4500
+        });
       }
   
       if (password.length < 6) {
-        return alert('A senha deve ter no mínimo 6 caracteres!');
+        return Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'A senha deve ter no mínimo 6 caracteres!',
+          showConfirmButton: false,
+          timer: 4500
+        });
       }
 
       setLoading(true);
@@ -36,14 +55,27 @@ export function SignUp (){
     api
     .post('/users', { name, email, password })
     .then(() => {
-      alert('Usuário cadastrado com sucesso!');
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Usuário cadastrado com sucesso!',
+        showConfirmButton: false,
+        timer: 5000
+      });
       navigate(-1);
     })
     .catch((error) => {
       if (error.response) {
         alert(error.response.data.message);
       } else {
-        alert('Não foi possível cadastrar.');
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Não foi possível cadastrar.',
+          showConfirmButton: false,
+          timer: 5000
+        });
+        
       }
     })
     .finally(() => setLoading(false));

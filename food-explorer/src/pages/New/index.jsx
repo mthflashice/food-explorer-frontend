@@ -16,6 +16,8 @@ import { useMediaQuery } from "react-responsive";
 import { useNavigate } from 'react-router-dom';
 import { api } from '../../services/api';
 
+import Swal from 'sweetalert2'
+
 export function New({$Isadmin}){
     const isDesktop = useMediaQuery({ minWidth: 1024 });
     const [$ismenuOpen, setIsMenuOpen] = useState(false);
@@ -56,33 +58,73 @@ export function New({$Isadmin}){
 
     async function handleNewDish() {
         if (!image) {
-            return alert('Selecione a imagem do prato.');
+            return  Swal.fire({
+              position: 'center-end',
+              icon: 'warning',
+              title: 'Selecione a imagem do prato.',
+              showConfirmButton: false,
+              timer: 3500
+            });
           }
       
           if (!name) {
-            return alert('Digite o nome do prato.');
+            return Swal.fire({
+              position: 'center-end',
+              icon: 'warning',
+              title: 'Digite o nome do prato.',
+              showConfirmButton: false,
+              timer: 3500
+            }); 
           }
       
           if (!category) {
-            return alert('Selecione a categoria do prato.');
+            return Swal.fire({
+              position: 'center-end',
+              icon: 'warning',
+              title: 'Selecione a categoria do prato.',
+              showConfirmButton: false,
+              timer: 3500
+            });
           }
       
           if (tags.length === 0) {
-            return alert('Informe pelo menos um ingrediente do prato.');
+            return Swal.fire({
+              position: 'center-end',
+              icon: 'warning',
+              title: 'Informe pelo menos um ingrediente do prato.',
+              showConfirmButton: false,
+              timer: 3500
+            });
           }
       
           if (newTag) {
-            return alert(
-              'Você deixou um ingrediente no campo para adicionar, mas não clicou em adicionar. Clique para adicionar ou deixe o campo vazio.'
-            );
+            return Swal.fire({
+              position: 'center-end',
+              icon: 'warning',
+              title: 'Você deixou um ingrediente no campo para adicionar, mas não clicou em adicionar. Clique para adicionar ou deixe o campo vazio.',
+              showConfirmButton: false,
+              timer: 3500
+            });
           }
       
           if (!price) {
-            return alert('Digite o preço do prato.');
+            return Swal.fire({
+              position: 'center-end',
+              icon: 'warning',
+              title: 'Digite o preço do prato.',
+              showConfirmButton: false,
+              timer: 3500
+            });
           }
       
           if (!description) {
-            return alert('Digite a descrição do prato.');
+            return Swal.fire({
+              position: 'center-end',
+              icon: 'warning',
+              title: 'Digite a descrição do prato.',
+              showConfirmButton: false,
+              timer: 3500
+            });
           }
 
           setLoading(true);

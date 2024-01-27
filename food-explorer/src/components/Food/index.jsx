@@ -9,6 +9,7 @@ import { Button } from '../../components/Button'
 import { api } from '../../services/api';
 import { useState } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 export function Food({ data, $Isadmin, isFavorite, updateFavorite, handleDetails, user_id, ...rest }){
     const isDesktop = useMediaQuery({ minWidth: 1024 });
@@ -61,12 +62,24 @@ export function Food({ data, $Isadmin, isFavorite, updateFavorite, handleDetails
       }
 
       await api.post('/carts', { cart_items: [cartItem] })
-      alert('Prato adicionado ao carrinho!');
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: 'Prato adicionado ao carrinho!',
+        showConfirmButton: false,
+        timer: 1500
+      });
     } catch (error) {
       if (error.response) {
         alert(error.response.data.message);
       } else {
-        alert('Não foi possível adicionar ao carrinho.');
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: 'Não foi possível adicionar ao carrinho.',
+          showConfirmButton: false,
+          timer: 1500
+        }); //
         console.log('Erro ao adicionar ao carrinho:', error);
       }
       } finally {

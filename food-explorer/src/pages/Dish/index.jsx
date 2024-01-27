@@ -12,6 +12,9 @@ import { Button } from '../../components/Button';
 import {Menu} from '../../components/Menu' 
 import { api } from '../../services/api';
 
+import Swal from 'sweetalert2'
+
+
 export function Dish({ $Isadmin, user_id }) {
     const isDesktop = useMediaQuery({ minWidth: 1024 });
     const [$ismenuOpen, setIsMenuOpen] = useState(false);
@@ -64,12 +67,24 @@ export function Dish({ $Isadmin, user_id }) {
             setCartId(createdCart.id);
           }
     
-          alert('Prato adicionado ao carrinho!');
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: 'Prato adicionado ao carrinho!',
+            showConfirmButton: false,
+            timer: 1500
+          });
         } catch (error) {
           if (error.response) {
             alert(error.response.data.message);
           } else {
-            alert('Não foi possível adicionar ao carrinho.');
+            Swal.fire({
+              position: "center",
+              icon: "error",
+              title: 'Não foi possível adicionar ao carrinho.',
+              showConfirmButton: false,
+              timer: 1500
+            });
             console.log('Erro ao adicionar ao carrinho:', error);
           }
         } finally {

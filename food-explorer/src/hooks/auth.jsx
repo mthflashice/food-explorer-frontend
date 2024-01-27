@@ -2,6 +2,8 @@ import {createContext,useContext, useState, useEffect} from 'react'
 import { api } from '../services/api'
 import { jwtDecode } from 'jwt-decode';
 
+import Swal from 'sweetalert2'
+
 export const  AuthContext=createContext({});
 
 function AuthProvider({children}){
@@ -46,7 +48,13 @@ function AuthProvider({children}){
             if (error.response) {
                  alert(error.response.data.message);
         }else{
-            alert ('Não foi possível entrar.');
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Não foi possível entrar.',
+            showConfirmButton: false,
+            timer: 5000
+          });
         }
         
     }
