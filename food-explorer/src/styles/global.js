@@ -12,7 +12,30 @@ export default createGlobalStyle`
     --swiper-navigation-color:${({ theme }) => theme.COLORS.WHITE};
     --swiper-navigation-size: 4rem;
     --swiper-theme-color: ${({ theme }) => theme.COLORS.WHITE};
+
+    ::-webkit-scrollbar {
+    width: 0.8rem;
   }
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 1.8rem;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: ${({ theme }) => theme.COLORS.BACKGROUND_500};
+  border-radius: 2rem;
+  border: 3rem solid transparent;
+}
+
+  ::-webkit-scrollbar:hover{
+    color:${({ theme }) => theme.COLORS.DARK_BLUE};
+    border: 30rem solid;
+    border-radius: 2rem;
+
+  }
+}
 
   body {
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
