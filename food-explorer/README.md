@@ -67,6 +67,7 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 - Styled Components
 - Swiper
 - ViteJS
+- Sweetalert2
 
 <h2 id="usage">💡 Utilização</h2>
 
@@ -106,15 +107,15 @@ O Food Explorer possui duas personas principais: o admin e o usuário. Você pod
 
 Admin:
 
-- E-mail: admin@email.com
-- Senha: admin123
+- E-mail: admin@test.com
+- Senha: admin1
 
 O admin tem acesso privilegiado e pode gerenciar o cardápio, adicionando, editando e removendo pratos, além de executar outras tarefas administrativas.
 
 Usuário:
 
-- E-mail: user@email.com
-- Senha: user123
+- E-mail: matheus@test.com 
+- Senha: 123456
 
 O usuário tem acesso restrito às funcionalidades da aplicação, podendo visualizar o cardápio, filtrar pratos, ver detalhes de pratos específicos, favoritar pratos e adicionar pratos ao carrinho.
 
