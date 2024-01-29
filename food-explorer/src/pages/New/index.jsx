@@ -184,7 +184,9 @@ export function New({$Isadmin}){
                     </header>
 
                     <div>
+                    <div className='image'>
                         <Section title ='Imagem do prato'>
+                        
                             <Image className="image">
                             <label htmlFor="image">
                                 <FiUpload size={'2.4rem'}/>
@@ -197,7 +199,9 @@ export function New({$Isadmin}){
                                 />  
                                 </label>
                             </Image>
+                            
                         </Section>
+                        </div>
 
                         <Section title = 'Nome'>
                             <Input className="name"
@@ -249,7 +253,8 @@ export function New({$Isadmin}){
                 />
             </div>
             </Section>
-
+            
+            <div id='Price'>
             <Section title='Preço'>
                 <Input className='price'
                 placeholder='R$ 00,00'
@@ -258,6 +263,7 @@ export function New({$Isadmin}){
                 onChange={e => setPrice(e.target.value)}
                 />
             </Section>
+            </div>
         </div>
             
             

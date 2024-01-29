@@ -134,7 +134,7 @@ export const Form = styled.form`
   @media (min-width: 1024px) {
     gap: 3.2rem;
 
-    width: calc(100% - 24.8rem);
+    width: calc(100% - 25rem);
     margin: 4rem 12.4rem 11.6rem;
 
     > div {
@@ -153,7 +153,7 @@ export const Form = styled.form`
 
       :nth-of-type(2) {
         section:nth-of-type(2) {
-          max-width: 25.1rem;
+          max-width: 15.1rem;
         }
       }
     }
