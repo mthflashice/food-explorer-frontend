@@ -50,8 +50,10 @@ export function Header({ $Isadmin, isDisabled, $ismenuOpen, setIsMenuOpen, setSe
                 {(isDesktop || $ismenuOpen) && (
                     <>
                       <Brand>
+                      <a href="javascript:history.back()">
                       <img src={logo} alt='Logo'/>
-                     </Brand>
+                      </a>
+                     </Brand>               
 
                      {isDesktop && <Search isDisabled={isDisabled} setSearch={setSearch} />}
 
