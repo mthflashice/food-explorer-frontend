@@ -198,7 +198,12 @@ export function Edit({ $Isadmin }) {
           if (error.response) {
             alert(error.response.data.message);
           } else {
-            alert('Não foi possível atualizar o prato.');
+            Swal.fire({
+              position: 'center',
+              icon: 'error',
+              title: 'Não foi possível cadastrar o prato.',
+              showConfirmButton: false,
+              timer: 3500});
           }
         } finally {
           setLoading(false);

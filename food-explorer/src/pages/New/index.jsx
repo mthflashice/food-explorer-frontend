@@ -140,13 +140,24 @@ export function New({$Isadmin}){
       
           try {
             await api.post('/dishes', formData);
-            alert('Prato cadastrado com sucesso!');
+            return Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Prato cadastrado com sucesso!',
+              showConfirmButton: false,
+              timer: 3500
+            }),
             navigate(-1);
           } catch (error) {
             if (error.response) {
               alert(error.response.data.message);
             } else {
-              alert('Não foi possível cadastrar o prato.');
+              Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Não foi possível cadastrar o prato.',
+                showConfirmButton: false,
+                timer: 3500});
             }
           } finally {
             setLoading(false);
