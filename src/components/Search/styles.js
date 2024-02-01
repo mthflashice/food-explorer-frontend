@@ -18,6 +18,7 @@ export const Container = styled.div`
 
     input{
         max-width: 28.2rem;
+        outline: none;
     
 
     &:focus{

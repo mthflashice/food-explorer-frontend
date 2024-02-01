@@ -5,7 +5,7 @@ import { Edit } from './../pages/Edit';
 import { Dish } from './../pages/Dish'
 import { Home } from './../pages/Home'
 import { Favorites } from '../pages/Favorites';
-// import { Orders } from '../pages/Orders';
+import { Orders } from '../pages/Orders';
 
 export function AppRoutes ({ $Isadmin }) {
     return(
@@ -15,7 +15,7 @@ export function AppRoutes ({ $Isadmin }) {
             <Route path='/edit/:id' element={<Edit $Isadmin={$Isadmin} />} />
             <Route path='/dish/:id' element={<Dish $Isadmin={$Isadmin}/>} />
             <Route path='/favorites' element={<Favorites $Isadmin={$Isadmin} />} />
-            {/* <Route path='/orders' element={<Orders $Isadmin={$Isadmin} />} /> */}
+            <Route path='/orders' element={<Orders $Isadmin={$Isadmin} />} />
         </Routes>
     );
 }
