@@ -101,7 +101,7 @@ export const Title = styled.div`
     }
 `;
 
-export const Order = styled.div`
+export const OrderChosen = styled.div`
   width: 100%;
   
   display: flex;

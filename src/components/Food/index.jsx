@@ -3,7 +3,7 @@ import {FiHeart} from 'react-icons/fi'
 import {RxCaretRight} from 'react-icons/rx'
 import { useMediaQuery } from 'react-responsive'
 import theme from '../../styles/theme'
-import { Container, Title, Order } from './styles'
+import { Container, Title, OrderChosen } from './styles'
 import {NumberPicker} from '../../components/NumberPicker'
 import { Button } from '../../components/Button'
 import { api } from '../../services/api';
@@ -116,10 +116,10 @@ export function Food({ data, $Isadmin, isFavorite, updateFavorite, handleDetails
             {isDesktop && <p>{data.description}</p>}
             <span>R$ {data.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
             {!$Isadmin &&
-            <Order>
+            <OrderChosen>
                 <NumberPicker number={number} setNumber={setNumber}/>
                 <Button title='incluir' onClick={handleInclude}loading={loading} />
-                </Order>
+                </OrderChosen>
                 }
         </Container>
     );

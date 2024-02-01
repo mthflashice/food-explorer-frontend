@@ -27,6 +27,10 @@ export function Header({ $Isadmin, isDisabled, $ismenuOpen, setIsMenuOpen, setSe
         navigate('/new');
     }
 
+    function handleOrders() {
+        navigate('/orders');
+    }
+
     function handleSignOut() {
         navigate('/');
         signOut();
@@ -63,7 +67,8 @@ export function Header({ $Isadmin, isDisabled, $ismenuOpen, setIsMenuOpen, setSe
 
           {$Isadmin ? 
             (isDesktop && <Button className='new' title='Novo prato' onClick={handleNew} />) :
-            <Button className='orders' title={isDesktop ? 'Pedidos' : undefined} isCustomer orderCount={0} />
+            <Button className='orders' title={isDesktop ? 'Pedidos' : undefined} isCustomer orderCount={0} onClick ={handleOrders}
+             />
                         }
 
                         {isDesktop &&
