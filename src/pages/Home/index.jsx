@@ -96,7 +96,7 @@ export function Home({ $Isadmin, user_id }) {
     useEffect(() => {
       const fetchOrders = async () => {
         try {
-          const response = await api.get('/orders');
+          const response = await api.get('/myorders');
           const orders = response.data.map((order) => order.dish_id);
   
           setOrders(orders);
@@ -129,13 +129,13 @@ export function Home({ $Isadmin, user_id }) {
     const updateOrder = async (isOrder, dishId) => {
       try {
         if (isOrder) {
-          await api.delete(`/orders/${dishId}`);
+          await api.delete(`/myorders/${dishId}`);
   
           setOrders((prevOrders) =>
             prevOrders.filter((order) => order !== dishId)
           );
         } else {
-          await api.post('/orders', { dish_id: dishId });
+          await api.post('/myorders', { dish_id: dishId });
           setOrders((prevOrders) => [...prevOrders, dishId]);
         }
       } catch (error) {

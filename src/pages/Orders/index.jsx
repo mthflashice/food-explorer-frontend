@@ -34,7 +34,7 @@ export function Orders ({ $Isadmin }){
     useEffect(() => {
       const fetchOrders = async () => {
         try {
-          const response = await api.get('/orders');
+          const response = await api.get('/myorders');
           setOrders(response.data);
         } catch (error) {
           console.log('Erro ao buscar pedidos:', error);

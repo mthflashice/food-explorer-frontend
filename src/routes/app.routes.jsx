@@ -15,7 +15,7 @@ export function AppRoutes ({ $Isadmin }) {
             <Route path='/edit/:id' element={<Edit $Isadmin={$Isadmin} />} />
             <Route path='/dish/:id' element={<Dish $Isadmin={$Isadmin}/>} />
             <Route path='/favorites' element={<Favorites $Isadmin={$Isadmin} />} />
-            <Route path='/orders' element={<Orders $Isadmin={$Isadmin} />} />
+            <Route path='/myorders' element={<Orders $Isadmin={$Isadmin} />} />
         </Routes>
     );
 }

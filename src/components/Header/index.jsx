@@ -30,7 +30,7 @@ export function Header({ $Isadmin, isDisabled, $ismenuOpen, setIsMenuOpen, setSe
     }
 
     function handleOrders() {
-        navigate('/orders');
+        navigate('/myorders');
     }
 
     function handleSignOut() {
