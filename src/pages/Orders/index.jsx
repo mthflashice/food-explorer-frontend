@@ -14,50 +14,57 @@ import { ButtonText } from "../../components/ButtonText";
 import { Footer } from '../../components/Footer';
 import { Order } from '../../components/Order';
 
-export function Orders({ $isadmin }) {
+export function Orders ({ $Isadmin }){
   const isDesktop = useMediaQuery({ minWidth: 1024 });
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [$ismenuOpen, setIsMenuOpen] = useState(false);
   const [orders, setOrders] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
 
   function handleBack() {
-    navigate(-1);
-  }
+      navigate(-1);
+    }
 
-  function handleUpdateOrder(value) {
-    setFlagUpdateOrder(value);
-  }
+    function handleUpdateOrder(value) {
+      setFlagUpdateOrder(value)
+    }
 
-  useEffect(() => {
-    const fetchOrders = async () => {
-      try {
-        const response = await api.get('/orders');
-        setOrders(response.data);
-      } catch (error) {
-        console.log('Erro ao buscar pedidos:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
 
-    fetchOrders();
-  }, []);
+    useEffect(() => {
+      const fetchOrders = async () => {
+        try {
+          const response = await api.get('/orders');
+          setOrders(response.data);
+        } catch (error) {
+          console.log('Erro ao buscar pedidos:', error);
+        }
+      };
 
-  return (
-    <Container>
-      {!isDesktop && <Menu $isadmin={$isadmin} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} flagUpdateOrder={handleUpdateOrder} />}
+      fetchOrders();
+    }, [])
 
-      <Header $isadmin={$isadmin} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} flagUpdateOrder={handleUpdateOrder} />
+    return (
+      <Container>
+        {!isDesktop && 
+          <Menu 
+            $Isadmin={$Isadmin} 
+            $ismenuOpen={$ismenuOpen} 
+            setIsMenuOpen={setIsMenuOpen} 
+            flagUpdateOrder={handleUpdateOrder}
 
-      {loading ? (
-        <main>
-          <div>Loading...</div>
-        </main>
-      ) : (
-        orders && (
+          />
+        }
+
+        <Header 
+          $Isadmin={$Isadmin} 
+          $ismenuOpen={$ismenuOpen} 
+          setIsMenuOpen={setIsMenuOpen}
+          flagUpdateOrder={handleUpdateOrder} 
+        />
+
+        {
+          orders && 
           <main>
             <div>
               <header>
@@ -66,21 +73,25 @@ export function Orders({ $isadmin }) {
                   voltar
                 </ButtonText>
 
-                <h1>Meus Pedidos</h1>
+                <h1> Meus Pedidos</h1>
               </header>
 
               <Content>
-                {orders.map((order) => (
-                  <Order key={String(order.id)} data={order} />
-                ))}
+                {
+                  orders.map(orders => (
+                    <Order
+                      key={String(orders.id)}
+                      data={orders}
+                    />
+                  ))
+                }
               </Content>
             </div>
           </main>
-        )
-      )}
+        }
 
-      <Footer />
-    </Container>
-  );
-}
+        <Footer />
+      </Container>
+    );
+      }
 
