@@ -44,6 +44,18 @@ export function Orders ({ $Isadmin }){
       fetchOrders();
     }, [])
 
+    const cancelMyOrder = async (dishId) => {
+      try {
+          await api.delete(`/myorders/${dishId}`);
+    
+          setFavorites((prevFavorites) =>
+            prevFavorites.filter((favorite) => favorite.id !== dishId)
+          );
+        } catch (error) {
+          console.log('Erro ao att seu pedido', error);
+        }
+      };
+
     return (
       <Container>
         {!isDesktop && 
@@ -82,6 +94,8 @@ export function Orders ({ $Isadmin }){
                     <Order
                       key={String(orders.id)}
                       data={orders}
+                      cancelMyOrder={cancelMyOrder} 
+
                     />
                   ))
                 }
