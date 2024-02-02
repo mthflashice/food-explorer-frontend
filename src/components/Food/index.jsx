@@ -11,7 +11,7 @@ import { useState } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
-export function Food({ data, $Isadmin, isFavorite, isOrder, updateFavorite, handleDetails, user_id, ...rest }){
+export function Food({ data, $Isadmin, isFavorite, isOrder, updateFavorite, updateOrder, handleDetails, user_id, ...rest }){
     const isDesktop = useMediaQuery({ minWidth: 1024 });
 
     const params = useParams();
@@ -35,7 +35,12 @@ export function Food({ data, $Isadmin, isFavorite, isOrder, updateFavorite, hand
     }
   };
 
-  const handleOrders = async () => {
+  function handleEdit() {
+    navigate(`/edit/${data.id}`);
+  }
+
+  const handleOrder = async () =>{{
+    setLoading(true);
     try {
       if (isOrder) {
         updateOrder(true, data.id);
@@ -43,16 +48,8 @@ export function Food({ data, $Isadmin, isFavorite, isOrder, updateFavorite, hand
         updateOrder(false, data.id);
       }
     } catch (error) {
-      console.log('Erro ao atualizar favoritos:', error);
-    }
-  };
-
-  function handleEdit() {
-    navigate(`/edit/${data.id}`);
-  }
-
-  async function handleInclude() {
-    setLoading(true);
+      console.log('Erro ao adicionar ao pedido', error);
+    }};
 
     try{
       const cartItem = {
@@ -130,7 +127,7 @@ export function Food({ data, $Isadmin, isFavorite, isOrder, updateFavorite, hand
             {!$Isadmin &&
             <OrderChosen>
                 <NumberPicker number={number} setNumber={setNumber}/>
-                <Button title='incluir' onClick={handleInclude}loading={loading} />
+                <Button title='incluir' onClick={handleOrder}loading={loading} />
                 </OrderChosen>
                 }
         </Container>

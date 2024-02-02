@@ -25,6 +25,11 @@ export function Orders ({ $Isadmin }){
     function handleBack() {
         navigate(-1);
       }
+
+      function handleUpdateOrder(value) {
+        setFlagUpdateOrder(value)
+      }
+    
     
       useEffect(() => {
         const fetchOrders = async () => {
@@ -38,7 +43,6 @@ export function Orders ({ $Isadmin }){
     
         fetchOrders();
       }, [])
-    
 
       return (
         <Container>
@@ -47,13 +51,16 @@ export function Orders ({ $Isadmin }){
               $Isadmin={$Isadmin} 
               $ismenuOpen={$ismenuOpen} 
               setIsMenuOpen={setIsMenuOpen} 
+              flagUpdateOrder={handleUpdateOrder}
+
             />
           }
     
           <Header 
             $Isadmin={$Isadmin} 
             $ismenuOpen={$ismenuOpen} 
-            setIsMenuOpen={setIsMenuOpen} 
+            setIsMenuOpen={setIsMenuOpen}
+            flagUpdateOrder={handleUpdateOrder} 
           />
     
           {

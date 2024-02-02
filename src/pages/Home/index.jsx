@@ -91,6 +91,23 @@ export function Home({ $Isadmin, user_id }) {
   
       fetchFavorites();
     }, []);
+
+    const [orders, setOrders] = useState([]);
+    useEffect(() => {
+      const fetchOrders = async () => {
+        try {
+          const response = await api.get('/orders');
+          const orders = response.data.map((order) => order.dish_id);
+  
+          setOrders(orders);
+        } catch (error) {
+          console.log('Erro ao buscar pratos:', error);
+        }
+      };
+  
+      fetchOrders();
+    }, []);
+  
   
     const updateFavorite = async (isFavorite, dishId) => {
       try {
@@ -108,6 +125,26 @@ export function Home({ $Isadmin, user_id }) {
         console.log('Erro ao atualizar favoritos:', error);
       }
     };
+
+    const updateOrder = async (isOrder, dishId) => {
+      try {
+        if (isOrder) {
+          await api.delete(`/orders/${dishId}`);
+  
+          setOrders((prevOrders) =>
+            prevOrders.filter((order) => order !== dishId)
+          );
+        } else {
+          await api.post('/orders', { dish_id: dishId });
+          setOrders((prevOrders) => [...prevOrders, dishId]);
+        }
+      } catch (error) {
+        console.log('Erro ao att seu pedido', error);
+      }
+    };
+
+
+
   
     return (
       <Container>
@@ -161,7 +198,9 @@ export function Home({ $Isadmin, user_id }) {
                         $Isadmin={$Isadmin}
                         data={dish}
                         isFavorite={favorites.includes(dish.id)}
-                        updateFavorite={updateFavorite} 
+                        updateFavorite={updateFavorite}
+                        isOrder={orders.includes(dish.id)}
+                        updateOrder={updateOrder}
                         user_id={user_id}
                         handleDetails={handleDetails}
                       />
@@ -188,7 +227,9 @@ export function Home({ $Isadmin, user_id }) {
                         $Isadmin={$Isadmin}
                         data={dish}
                         isFavorite={favorites.includes(dish.id)}
-                        updateFavorite={updateFavorite} 
+                        updateFavorite={updateFavorite}
+                        isOrder={orders.includes(dish.id)}
+                        updateOrder={updateOrder}
                         user_id={user_id}
                         handleDetails={handleDetails}
                       />
@@ -216,6 +257,8 @@ export function Home({ $Isadmin, user_id }) {
                         data={dish} 
                         isFavorite={favorites.includes(dish.id)}
                         updateFavorite={updateFavorite}
+                        isOrder={orders.includes(dish.id)}
+                        updateOrder={updateOrder}
                         user_id={user_id}
                         handleDetails={handleDetails}
                       />
