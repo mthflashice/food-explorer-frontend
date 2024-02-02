@@ -2,6 +2,8 @@ import { FiLogOut, FiMenu} from 'react-icons/fi'
 import {MdClose} from 'react-icons/md'
 import { useMediaQuery } from 'react-responsive'
 
+import { Link } from 'react-router-dom';
+
 import {Container, Brand, Menu, Logout} from './styles'
  
 import { useNavigate } from 'react-router-dom'
@@ -54,10 +56,10 @@ export function Header({ $Isadmin, isDisabled, $ismenuOpen, setIsMenuOpen, setSe
                 {(isDesktop || $ismenuOpen) && (
                     <>
                       <Brand>
-                      <a href="javascript:history.back()">
+                      <Link to="/"> 
                       <img src={logo} alt='Logo'/>
-                      </a>
-                     </Brand>               
+                      </Link> 
+                     </Brand>              
 
                      {isDesktop && <Search isDisabled={isDisabled} setSearch={setSearch} />}
 
