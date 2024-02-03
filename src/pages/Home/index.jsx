@@ -20,7 +20,7 @@ export function Home({ $Isadmin, user_id }) {
     const swiperElRef2 = useRef(null);
     const swiperElRef3 = useRef(null);
   
-    const isDesktop = useMediaQuery({ minWidth: 1024 });
+    const $isDesktop = useMediaQuery({ minWidth: 1024 });
     const [$ismenuOpen, setIsMenuOpen] = useState(false);
 
     register ();
@@ -34,7 +34,7 @@ export function Home({ $Isadmin, user_id }) {
   
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          if (entry.target.swiper) {
           
             entry.target.swiper && entry.target.swiper.autoplay.start();
           } else {
@@ -148,7 +148,7 @@ export function Home({ $Isadmin, user_id }) {
   
     return (
       <Container>
-         {!isDesktop && 
+         {!$isDesktop && 
         <Menu 
           $Isadmin={$Isadmin} 
           $ismenuOpen={$ismenuOpen} 
@@ -168,7 +168,7 @@ export function Home({ $Isadmin, user_id }) {
           <div>
             <header>
               <img 
-                src={isDesktop ? homeBanner : bannerMobile}
+                src={$isDesktop ? homeBanner : bannerMobile}
                 alt='Macarons coloridos em tons pastel despencando juntamente com folhas verdes e frutas frescas.' 
               />
   
@@ -183,11 +183,11 @@ export function Home({ $Isadmin, user_id }) {
               <swiper-container
                 class Name ='swiper-container'
                 // Effect={'cards'}
-                key={isDesktop}
+                key={$isDesktop}
                 ref={swiperElRef1}
-                space-between={isDesktop ? '27' : '16'}
+                space-between={$isDesktop ? '27' : '16'}
                 slides-per-view='auto'
-                navigation={isDesktop ? 'true'  : 'false'}
+                navigation={$isDesktop ? 'true'  : 'false'}
                 loop='true'
                 grab-cursor='true'
               >
@@ -212,11 +212,11 @@ export function Home({ $Isadmin, user_id }) {
 
             <Section title='Sobremesas'>
               <swiper-container
-                key={isDesktop}
+                key={$isDesktop}
                 ref={swiperElRef2}
-                space-between={isDesktop ? '27' : '16'}
+                space-between={$isDesktop ? '27' : '16'}
                 slides-per-view='auto'
-                navigation={isDesktop ? 'true' : 'false'}
+                navigation={$isDesktop ? 'true' : 'false'}
                 loop='true'
                 grab-cursor='true'
               >
@@ -241,11 +241,11 @@ export function Home({ $Isadmin, user_id }) {
 
             <Section title='Bebidas'>
               <swiper-container
-                key={isDesktop}
+                key={$isDesktop}
                 ref={swiperElRef3}
-                space-between={isDesktop ? '27' : '16'}
+                space-between={$isDesktop ? '27' : '16'}
                 slides-per-view='auto'
-                navigation={isDesktop ? 'true' : 'false'}
+                navigation={$isDesktop ? 'true' : 'false'}
                 loop='true'
                 grab-cursor='true'
               >

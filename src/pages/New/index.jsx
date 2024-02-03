@@ -19,7 +19,7 @@ import { api } from '../../services/api';
 import Swal from 'sweetalert2'
 
 export function New({$Isadmin}){
-    const isDesktop = useMediaQuery({ minWidth: 1024 });
+    const $isDesktop = useMediaQuery({ minWidth: 1024 });
     const [$ismenuOpen, setIsMenuOpen] = useState(false);
 
     const [name, setName] = useState('');
@@ -167,7 +167,7 @@ export function New({$Isadmin}){
 
     return(
         <Container>
-            {!isDesktop &&
+            {!$isDesktop &&
             <Menu 
             $Isadmin={$Isadmin}
             isDisabled={true} 

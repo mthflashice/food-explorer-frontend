@@ -15,11 +15,11 @@ import  brand  from '../../assets/brand.svg';
 import  brandAdmin  from '../../assets/brand-admin.svg'
 import brandMobile from '../../assets/brand-mobile.svg'
 
-export function Header({ $Isadmin, isDisabled, $ismenuOpen, setIsMenuOpen, setSearch }){
-    const isDesktop = useMediaQuery({ minWidth: 1024 });
-    const logo = $Isadmin ? (isDesktop ? brandAdmin : brandMobile) : brand;
+export function Header({ $Isadmin, isDisabled, $ismenuOpen, setIsMenuOpen, setSearch }) {
+    const $isDesktop = useMediaQuery({ minWidth: 1024 });
+    const logo = $Isadmin ? ($isDesktop ? brandAdmin : brandMobile) : brand;
 
-    // const [orderCount, setOrderCount] = useState(0);
+    const [$orderCount, setOrderCount] = useState(0);
 
 
     const { signOut } = useAuth();
@@ -34,10 +34,10 @@ export function Header({ $Isadmin, isDisabled, $ismenuOpen, setIsMenuOpen, setSe
     }
 
     function handleOrders() {
-        // setOrderCount((prevCount) => prevCount + 1);
+        setOrderCount((prevCount) => prevCount + 1);
         navigate('/myorders');
-    }
-
+      }
+    
     function handleSignOut() {
         navigate('/');
         signOut();
@@ -45,7 +45,7 @@ export function Header({ $Isadmin, isDisabled, $ismenuOpen, setIsMenuOpen, setSe
 
     return(
         <Container>
-            {!isDesktop && (
+            {!$isDesktop && (
                 <Menu>
                      {!$ismenuOpen ?
                         <FiMenu className='fi-menu-icon' onClick={()=>
@@ -58,7 +58,7 @@ export function Header({ $Isadmin, isDisabled, $ismenuOpen, setIsMenuOpen, setSe
                 </Menu>
                 )}
 
-                {(isDesktop || $ismenuOpen) && (
+                {($isDesktop || $ismenuOpen) && (
                     <>
                       <Brand>
                       <Link to="/"> 
@@ -66,19 +66,24 @@ export function Header({ $Isadmin, isDisabled, $ismenuOpen, setIsMenuOpen, setSe
                       </Link> 
                      </Brand>              
 
-                     {isDesktop && <Search isDisabled={isDisabled} setSearch={setSearch} />}
+                     {$isDesktop && <Search isDisabled={isDisabled} setSearch={setSearch} />}
 
-          {isDesktop &&
+          {$isDesktop &&
             <button className='favorites' onClick={handleFavorites}>Meus favoritos</button>
           }
 
           {$Isadmin ? 
-            (isDesktop && <Button className='new' title='Novo prato' onClick={handleNew} />) :
-            <Button className='orders' title={isDesktop ? 'Pedidos' : undefined} isCustomer ordercount={0} onClick ={handleOrders}
+            ($isDesktop && <Button className='new' title='Novo prato' onClick={handleNew} />) :
+            <Button 
+            className='orders' 
+            title={$isDesktop ? 'Pedidos' : undefined}
+            isCustomer 
+            ordercount={$orderCount}
+            onClick={handleOrders}
              />
                         }
 
-                        {isDesktop &&
+                        {$isDesktop &&
                         <Logout onClick={handleSignOut}>
                             <FiLogOut size={'3.2rem'}/>
                          </Logout>

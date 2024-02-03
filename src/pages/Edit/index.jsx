@@ -24,7 +24,7 @@ import { Footer } from '../../components/Footer';
 import Swal from 'sweetalert2'
 
 export function Edit({ $Isadmin }) {
-    const isDesktop = useMediaQuery({ minWidth: 1024 });
+    const $isDesktop = useMediaQuery({ minWidth: 1024 });
     const [$ismenuOpen, setIsMenuOpen] = useState(false);
   
     const [dish, setDish] = useState(null);
@@ -233,7 +233,7 @@ export function Edit({ $Isadmin }) {
     
       return (
         <Container>
-          {!isDesktop && 
+          {!$isDesktop && 
             <Menu
              $Isadmin={$Isadmin} 
              isDisabled={true}

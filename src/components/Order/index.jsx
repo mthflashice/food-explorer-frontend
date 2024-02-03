@@ -13,8 +13,8 @@ export function Order({ data, cancelMyOrder}) {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Sim, cancelar!',
-      cancelButtonText: 'Cancelar'
+      confirmButtonText: 'Sim, cancelar pedido!',
+      cancelButtonText: 'Não'
     }).then((result) => {
       if (result.isConfirmed) {
         // Se o usuário clicar em "Sim, cancelar!", chama a função para cancelar o pedido

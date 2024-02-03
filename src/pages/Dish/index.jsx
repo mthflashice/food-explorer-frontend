@@ -16,7 +16,7 @@ import Swal from 'sweetalert2'
 
 
 export function Dish({ $Isadmin, user_id }) {
-    const isDesktop = useMediaQuery({ minWidth: 1024 });
+    const $isDesktop = useMediaQuery({ minWidth: 1024 });
     const [$ismenuOpen, setIsMenuOpen] = useState(false);
     const [data, setData] = useState(null);
 
@@ -94,7 +94,7 @@ export function Dish({ $Isadmin, user_id }) {
 
     return (
         <Container>
-            {!isDesktop && 
+            {!$isDesktop && 
         <Menu 
         $Isadmin={$Isadmin} 
         isDisabled={true} 
@@ -154,12 +154,12 @@ export function Dish({ $Isadmin, user_id }) {
                     <>
                       <NumberPicker number={number} setNumber={setNumber} />
                       <Button 
-                        title={isDesktop ? 
+                        title={$isDesktop ? 
                           `incluir ∙ R$ ${(data.price * number).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}` : 
                           `pedir ∙ R$ ${(data.price * number).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`
                         } 
                         className='include' 
-                        isCustomer={!isDesktop}
+                        isCustomer={!$isDesktop}
                         onClick={handleInclude}
                         loading={loading}
                       />

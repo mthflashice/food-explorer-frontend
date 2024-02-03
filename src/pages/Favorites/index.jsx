@@ -14,7 +14,7 @@ import { Favorite } from '../../components/Favorite';
 import { Footer } from '../../components/Footer';
 
 export function Favorites({ $Isadmin }) {
-    const isDesktop = useMediaQuery({ minWidth: 1024 });
+    const $isDesktop = useMediaQuery({ minWidth: 1024 });
   
     const [$ismenuOpen, setIsMenuOpen] = useState(false);
     const [favorites, setFavorites] = useState([]);
@@ -52,7 +52,7 @@ export function Favorites({ $Isadmin }) {
   
     return (
       <Container>
-        {!isDesktop && 
+        {!$isDesktop && 
           <Menu 
             $Isadmin={$Isadmin} 
             $ismenuOpen={$ismenuOpen} 

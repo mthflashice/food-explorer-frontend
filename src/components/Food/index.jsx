@@ -12,7 +12,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
 export function Food({ data, $Isadmin, isFavorite, isOrder, updateFavorite, updateOrder, handleDetails, user_id, ...rest }){
-    const isDesktop = useMediaQuery({ minWidth: 1024 });
+    const $isDesktop = useMediaQuery({ minWidth: 1024 });
 
     const params = useParams();
     const navigate = useNavigate();
@@ -39,7 +39,7 @@ export function Food({ data, $Isadmin, isFavorite, isOrder, updateFavorite, upda
     navigate(`/edit/${data.id}`);
   }
 
-  const handleOrder = async () =>{{
+  const handleOrder = async () => {
     setLoading(true);
     try {
       if (isOrder) {
@@ -47,30 +47,27 @@ export function Food({ data, $Isadmin, isFavorite, isOrder, updateFavorite, upda
       } else {
         updateOrder(false, data.id);
       }
-    } catch (error) {
-      console.log('Erro ao adicionar ao pedido', error);
-    }};
-
-    try{
+  
       const cartItem = {
         dish_id: data.id,
         name: data.name,
         quantity: number,
       };
-
+  
       const response = await api.get('/carts', { params: { created_by: user_id } });
       const cart = response.data[0];
-
+  
       if (cart) {
+        // Se o carrinho existir, faça um PATCH para atualizar os itens do carrinho
         await api.patch(`/carts/${cart.id}`, { cart_items: [cartItem] });
       } else {
+        // Se o carrinho não existir, crie um novo carrinho e adicione o item
         const createResponse = await api.post('/carts', { cart_items: [cartItem], created_by: user_id });
         const createdCart = createResponse.data;
-
+  
         setCartId(createdCart.id);
       }
-
-      await api.post('/carts', { cart_items: [cartItem] })
+  
       Swal.fire({
         position: "center",
         icon: "success",
@@ -88,13 +85,13 @@ export function Food({ data, $Isadmin, isFavorite, isOrder, updateFavorite, upda
           title: 'Não foi possível adicionar ao carrinho.',
           showConfirmButton: false,
           timer: 1500
-        }); //
+        });
         console.log('Erro ao adicionar ao carrinho:', error);
       }
-      } finally {
+    } finally {
       setLoading(false);
     }
-  }
+  };
     
     return(
         <Container {...rest} $Isadmin={$Isadmin}>
@@ -117,12 +114,12 @@ export function Food({ data, $Isadmin, isFavorite, isOrder, updateFavorite, upda
             <Title>
                 <h2>{data.name}</h2>
                 <RxCaretRight 
-                size={isDesktop? '2.4rem' : '1.4rem'}
+                size={$isDesktop? '2.4rem' : '1.4rem'}
                 onClick={() => handleDetails(data.id)} 
                 />
             </Title>
 
-            {isDesktop && <p>{data.description}</p>}
+            {$isDesktop && <p>{data.description}</p>}
             <span>R$ {data.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
             {!$Isadmin &&
             <OrderChosen>

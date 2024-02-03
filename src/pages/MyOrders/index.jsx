@@ -15,7 +15,7 @@ import { Footer } from '../../components/Footer';
 import { Order } from '../../components/Order';
 
 export function Orders ({ $Isadmin }){
-  const isDesktop = useMediaQuery({ minWidth: 1024 });
+  const $isDesktop = useMediaQuery({ minWidth: 1024 });
 
   const [$ismenuOpen, setIsMenuOpen] = useState(false);
   const [orders, setOrders] = useState([]);
@@ -58,7 +58,7 @@ export function Orders ({ $Isadmin }){
 
     return (
       <Container>
-        {!isDesktop && 
+        {!$isDesktop && 
           <Menu 
             $Isadmin={$Isadmin} 
             $ismenuOpen={$ismenuOpen} 
