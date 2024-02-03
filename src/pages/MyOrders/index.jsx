@@ -48,8 +48,8 @@ export function Orders ({ $Isadmin }){
       try {
           await api.delete(`/myorders/${dishId}`);
     
-          setFavorites((prevFavorites) =>
-            prevFavorites.filter((favorite) => favorite.id !== dishId)
+          setOrders((prevCancelMyOrder) =>
+            prevCancelMyOrder.filter((myorders) => myorders.id !== dishId)
           );
         } catch (error) {
           console.log('Erro ao att seu pedido', error);
