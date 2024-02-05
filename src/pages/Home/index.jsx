@@ -15,7 +15,7 @@ import homeBanner from '../../assets/home-banner.png';
 
 import {register} from 'swiper/element/bundle'
 
-export function Home({ $Isadmin, user_id }) {
+export function Home({ $Isadmin, user_id,   }) {
     const swiperElRef1 = useRef(null);
     const swiperElRef2 = useRef(null);
     const swiperElRef3 = useRef(null);

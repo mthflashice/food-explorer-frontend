@@ -14,7 +14,7 @@ import { ButtonText } from "../../components/ButtonText";
 import { Footer } from '../../components/Footer';
 import { Order } from '../../components/Order';
 
-export function Orders ({ $Isadmin }){
+export function MyOrders({ $Isadmin, orderCount,   }){
   const $isDesktop = useMediaQuery({ minWidth: 1024 });
 
   const [$ismenuOpen, setIsMenuOpen] = useState(false);
@@ -86,6 +86,9 @@ export function Orders ({ $Isadmin }){
                 </ButtonText>
 
                 <h1> Meus Pedidos</h1>
+                <p>Quantidades de Pedidos:
+                   {orderCount}
+                   { }</p>
               </header>
 
               <Content>

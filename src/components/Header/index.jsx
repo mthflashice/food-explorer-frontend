@@ -72,16 +72,18 @@ export function Header({ $Isadmin, isDisabled, $ismenuOpen, setIsMenuOpen, setSe
             <button className='favorites' onClick={handleFavorites}>Meus favoritos</button>
           }
 
-          {$Isadmin ? 
-            ($isDesktop && <Button className='new' title='Novo prato' onClick={handleNew} />) :
-            <Button 
-            className='orders' 
-            title={$isDesktop ? 'Pedidos' : undefined}
-            isCustomer 
-            ordercount={$orderCount}
-            onClick={handleOrders}
+          {$Isadmin ? (
+            ($isDesktop && <Button className='new' title='Novo prato' onClick={handleNew} />) 
+            ) : (
+                <Button
+                  className='orders'
+                  title={`Pedidos ${$orderCount}`}
+                  isCustomer
+                  ordercount={$orderCount}
+                  onClick={handleOrders}
+                  setOrderCount={setOrderCount}
              />
-                        }
+                        )}
 
                         {$isDesktop &&
                         <Logout onClick={handleSignOut}>
