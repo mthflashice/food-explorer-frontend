@@ -22,6 +22,7 @@ export function Dish({ $Isadmin, user_id }) {
 
     const params = useParams();
     const navigate = useNavigate();
+    const [quantityOfItemsInTheCart, setQuantityOfItemsInTheCart] = useState(0);
 
     const [number, setNumber] = useState(1);
     const [cartId, setCartId] = useState(null);
@@ -49,6 +50,8 @@ export function Dish({ $Isadmin, user_id }) {
         setLoading(true);
     
         try {
+          setQuantityOfItemsInTheCart((prevCount) => prevCount + 1);
+
           const cartItem = {
             dish_id: data.id,
             name: data.name,
@@ -162,6 +165,7 @@ export function Dish({ $Isadmin, user_id }) {
                         isCustomer={!$isDesktop}
                         onClick={handleInclude}
                         loading={loading}
+                        value={quantityOfItemsInTheCart}
                       />
                     </>
                   }

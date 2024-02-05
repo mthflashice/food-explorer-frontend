@@ -19,7 +19,7 @@ export function Header({ $Isadmin, isDisabled, $ismenuOpen, setIsMenuOpen, setSe
     const $isDesktop = useMediaQuery({ minWidth: 1024 });
     const logo = $Isadmin ? ($isDesktop ? brandAdmin : brandMobile) : brand;
 
-    const [$orderCount, setOrderCount] = useState(0);
+    const [quantityOfItemsInTheCart, setQuantityOfItemsInTheCart] = useState(0);
 
 
     const { signOut } = useAuth();
@@ -34,7 +34,7 @@ export function Header({ $Isadmin, isDisabled, $ismenuOpen, setIsMenuOpen, setSe
     }
 
     function handleOrders() {
-        setOrderCount((prevCount) => prevCount + 1);
+        setQuantityOfItemsInTheCart((prevCount) => prevCount + 1);
         navigate('/myorders');
       }
     
@@ -77,11 +77,11 @@ export function Header({ $Isadmin, isDisabled, $ismenuOpen, setIsMenuOpen, setSe
             ) : (
                 <Button
                   className='orders'
-                  title={`Pedidos ${$orderCount}`}
+                  title={`Pedidos ${quantityOfItemsInTheCart}`}
                   isCustomer
-                  ordercount={$orderCount}
+                  ordercount={quantityOfItemsInTheCart}
                   onClick={handleOrders}
-                  setOrderCount={setOrderCount}
+                  setOrderCount={setQuantityOfItemsInTheCart}
              />
                         )}
 

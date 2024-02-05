@@ -21,6 +21,7 @@ export function Food({ data, $Isadmin, isFavorite, isMyorder, updateFavorite, up
     const [cartId, setCartId] = useState(null);
 
     const [loading, setLoading] = useState(false);
+    const [quantityOfItemsInTheCart, setQuantityOfItemsInTheCart] = useState(0);
 
 
   const handleFavorite = async () => {
@@ -42,6 +43,8 @@ export function Food({ data, $Isadmin, isFavorite, isMyorder, updateFavorite, up
   const handleMyOrder = async () => {
     setLoading(true);
     try {
+      setQuantityOfItemsInTheCart((prevCount) => prevCount + 1);
+      
       if (isMyorder) {
         updateMyOrder(true, data.id);
       } else {
@@ -121,12 +124,17 @@ export function Food({ data, $Isadmin, isFavorite, isMyorder, updateFavorite, up
 
             {$isDesktop && <p>{data.description}</p>}
             <span>R$ {data.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
-            {!$Isadmin &&
+            {!$Isadmin && (
             <OrderChosen>
-                <NumberPicker number={number} setNumber={setNumber}/>
-                <Button title='incluir' onClick={handleMyOrder}loading={loading} />
-                </OrderChosen>
-                }
-        </Container>
-    );
+                 <NumberPicker number={number} setNumber={setNumber} />
+          <Button
+            title='incluir'
+            onClick={handleMyOrder}
+            loading={loading}
+            value={quantityOfItemsInTheCart}
+          />
+        </OrderChosen>
+      )}
+    </Container>
+  );
 }
