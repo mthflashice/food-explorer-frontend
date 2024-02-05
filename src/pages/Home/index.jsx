@@ -92,14 +92,14 @@ export function Home({ $Isadmin, user_id }) {
       fetchFavorites();
     }, []);
 
-    const [orders, setOrders] = useState([]);
+    const [myOrders, setMyOrders] = useState([]);
     useEffect(() => {
       const fetchOrders = async () => {
         try {
           const response = await api.get('/myorders');
           const myorders = response.data.map((myorder) => myorder.dish_id);
   
-          setOrders(myorders);
+          setMyOrders(myorders);
         } catch (error) {
           console.log('Erro ao buscar pratos:', error);
         }
@@ -126,17 +126,17 @@ export function Home({ $Isadmin, user_id }) {
       }
     };
 
-    const updateOrder = async (isOrder, dishId) => {
+    const updateMyOrder = async (isMyorder, dishId) => {
       try {
-        if (isOrder) {
+        if (isMyorder) {
           await api.delete(`/myorders/${dishId}`);
   
-          setOrders((prevOrders) =>
-            prevOrders.filter((myorder) => myorder !== dishId)
+          setMyOrders((prevMyOrders) =>
+            prevMyOrders.filter((myorder) => myorder !== dishId)
           );
         } else {
           await api.post('/myorders', { dish_id: dishId });
-          setOrders((prevMyOrders) => [...prevMyOrders, dishId]);
+          setMyOrders((prevMyOrders) => [...prevMyOrders, dishId]);
         }
       } catch (error) {
         console.log('Erro ao att seu pedido', error);
@@ -199,8 +199,8 @@ export function Home({ $Isadmin, user_id }) {
                         data={dish}
                         isFavorite={favorites.includes(dish.id)}
                         updateFavorite={updateFavorite}
-                        isOrder={orders.includes(dish.id)}
-                        updateOrder={updateOrder}
+                        isMyorder={myOrders.includes(dish.id)} 
+                        updateMyOrder={updateMyOrder} 
                         user_id={user_id}
                         handleDetails={handleDetails}
                       />
@@ -228,8 +228,8 @@ export function Home({ $Isadmin, user_id }) {
                         data={dish}
                         isFavorite={favorites.includes(dish.id)}
                         updateFavorite={updateFavorite}
-                        isOrder={orders.includes(dish.id)}
-                        updateOrder={updateOrder}
+                        isMyorder={myOrders.includes(dish.id)} 
+                        updateMyOrder={updateMyOrder} 
                         user_id={user_id}
                         handleDetails={handleDetails}
                       />
@@ -257,8 +257,8 @@ export function Home({ $Isadmin, user_id }) {
                         data={dish} 
                         isFavorite={favorites.includes(dish.id)}
                         updateFavorite={updateFavorite}
-                        isOrder={orders.includes(dish.id)}
-                        updateOrder={updateOrder}
+                        isMyorder={myOrders.includes(dish.id)} 
+                        updateMyOrder={updateMyOrder} 
                         user_id={user_id}
                         handleDetails={handleDetails}
                       />

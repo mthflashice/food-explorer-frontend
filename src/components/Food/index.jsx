@@ -11,7 +11,7 @@ import { useState } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
-export function Food({ data, $Isadmin, isFavorite, isOrder, updateFavorite, updateOrder, handleDetails, user_id, ...rest }){
+export function Food({ data, $Isadmin, isFavorite, isMyorder, updateFavorite, updateMyOrder, handleDetails, user_id, ...rest }){
     const $isDesktop = useMediaQuery({ minWidth: 1024 });
 
     const params = useParams();
@@ -39,13 +39,13 @@ export function Food({ data, $Isadmin, isFavorite, isOrder, updateFavorite, upda
     navigate(`/edit/${data.id}`);
   }
 
-  const handleOrder = async () => {
+  const handleMyOrder = async () => {
     setLoading(true);
     try {
-      if (isOrder) {
-        updateOrder(true, data.id);
+      if (isMyorder) {
+        updateMyOrder(true, data.id);
       } else {
-        updateOrder(false, data.id);
+        updateMyOrder(false, data.id);
       }
   
       const cartItem = {
@@ -124,7 +124,7 @@ export function Food({ data, $Isadmin, isFavorite, isOrder, updateFavorite, upda
             {!$Isadmin &&
             <OrderChosen>
                 <NumberPicker number={number} setNumber={setNumber}/>
-                <Button title='incluir' onClick={handleOrder}loading={loading} />
+                <Button title='incluir' onClick={handleMyOrder}loading={loading} />
                 </OrderChosen>
                 }
         </Container>
