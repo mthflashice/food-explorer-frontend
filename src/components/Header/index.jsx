@@ -19,7 +19,7 @@ export function Header({ $Isadmin, isDisabled, $ismenuOpen, setIsMenuOpen, setSe
     const $isDesktop = useMediaQuery({ minWidth: 1024 });
     const logo = $Isadmin ? ($isDesktop ? brandAdmin : brandMobile) : brand;
 
-    const [quantityOfItemsInTheCart, setQuantityOfItemsInTheCart] = useState(0);
+    const [quantityOfItemsInTheCart, setQuantityOfItemsInTheCart] = useState(" ");
 
 
     const { signOut } = useAuth();
