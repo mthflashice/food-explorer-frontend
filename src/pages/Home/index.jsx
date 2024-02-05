@@ -132,11 +132,11 @@ export function Home({ $Isadmin, user_id }) {
           await api.delete(`/myorders/${dishId}`);
   
           setOrders((prevOrders) =>
-            prevOrders.filter((order) => order !== dishId)
+            prevOrders.filter((myorder) => myorder !== dishId)
           );
         } else {
           await api.post('/myorders', { dish_id: dishId });
-          setOrders((prevOrders) => [...prevOrders, dishId]);
+          setOrders((prevMyOrders) => [...prevMyOrders, dishId]);
         }
       } catch (error) {
         console.log('Erro ao att seu pedido', error);
