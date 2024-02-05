@@ -97,9 +97,9 @@ export function Home({ $Isadmin, user_id }) {
       const fetchOrders = async () => {
         try {
           const response = await api.get('/myorders');
-          const orders = response.data.map((order) => order.dish_id);
+          const myorders = response.data.map((myorder) => myorder.dish_id);
   
-          setOrders(orders);
+          setOrders(myorders);
         } catch (error) {
           console.log('Erro ao buscar pratos:', error);
         }
