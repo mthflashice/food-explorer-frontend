@@ -11,7 +11,7 @@ import { useState } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
-export function Food({ data, $Isadmin, isFavorite, isMyorder, updateFavorite, updateMyOrder, handleDetails, user_id, ...rest }){
+export function Food({ data, $Isadmin, isFavorite, isMyorder, updateFavorite, updateMyOrder, handleDetails, user_id, setOrderCount, ...rest }) {
     const $isDesktop = useMediaQuery({ minWidth: 1024 });
 
     const params = useParams();

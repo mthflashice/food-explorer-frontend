@@ -13,8 +13,9 @@ import { Header } from '../../components/Header';
 import { ButtonText } from "../../components/ButtonText";
 import { Footer } from '../../components/Footer';
 import { Order } from '../../components/Order';
+import { NumberPicker } from '../../components/NumberPicker';
 
-export function MyOrders({ $Isadmin, orderCount,   }){
+export function MyOrders({ $Isadmin, orderCount,setOrderCount   }){
   const $isDesktop = useMediaQuery({ minWidth: 1024 });
 
   const [$ismenuOpen, setIsMenuOpen] = useState(false);
@@ -27,7 +28,7 @@ export function MyOrders({ $Isadmin, orderCount,   }){
     }
 
     function handleUpdateOrder(value) {
-      setFlagUpdateOrder(value)
+      // setFlagUpdateOrder(value)
     }
 
 
@@ -55,6 +56,9 @@ export function MyOrders({ $Isadmin, orderCount,   }){
           console.log('Erro ao att seu pedido', error);
         }
       };
+      
+      const totalOrderPrice = orders.reduce((total, order) => total + order.price, 0);
+   
 
     return (
       <Container>
@@ -86,22 +90,23 @@ export function MyOrders({ $Isadmin, orderCount,   }){
                 </ButtonText>
 
                 <h1> Meus Pedidos</h1>
-                <p>Quantidades de Pedidos:
-                   {orderCount}
-                   { }</p>
-              </header>
+                
+                
+              <p>Preço Total: R$ {totalOrderPrice.toFixed(2).replace(".", ",")}</p>
+            </header>
+
 
               <Content>
                 {
-                  orders.map(orders => (
+                  orders.map(order => (
                     <Order
-                      key={String(orders.id)}
-                      data={orders}
-                      cancelMyOrder={cancelMyOrder} 
-
+                      key={String(order.id)}
+                      data={order}
+                      cancelMyOrder={cancelMyOrder}
+                      setOrderCount={setOrderCount}
+                      orderCount={orderCount}
                     />
-                  ))
-                }
+                  ))}
               </Content>
             </div>
           </main>

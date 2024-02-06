@@ -55,5 +55,11 @@ export const Content = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: 4.8rem;
+
+    > button {
+      max-width:10rem;
+      padding: 1.2rem 2.4rem;
+    }
+  
   }
 `;
