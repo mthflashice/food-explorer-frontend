@@ -22,11 +22,13 @@ export function MyOrders({ $Isadmin, orderCount,setOrderCount   }){
     setTotalPrice(newTotalPrice);
   };
 
-
   const [$ismenuOpen, setIsMenuOpen] = useState(false);
   const [orders, setOrders] = useState([]);
   const [number, setNumber] = useState(1);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [totalQuantity, setTotalQuantity] = useState(0);
+  const [hasCalculatedTotal, setHasCalculatedTotal] = useState(false); // Flag to track whether total has been calculated
+
 
   const navigate = useNavigate();
 
@@ -65,11 +67,17 @@ export function MyOrders({ $Isadmin, orderCount,setOrderCount   }){
       };
       
       useEffect(() => {
-        // Calculate the total price whenever orders change
-        const newTotalPrice = orders.reduce((total, order) => total + order.price, 0);
-        setTotalPrice(newTotalPrice);
-      }, [orders]);
-   
+        // Calculate the total price and total quantity whenever orders change
+        const newTotalPrice = orders.reduce((total, order) => total + (order.price * (order.quantity || 1)), 0);
+        const newTotalQuantity = orders.reduce((total, order) => total + (order.quantity || 1), 0);
+        
+        // Use the state updater function form to make sure you're working with the latest state
+        setTotalPrice(prevTotalPrice => prevTotalPrice + newTotalPrice);
+        setTotalQuantity(prevTotalQuantity => prevTotalQuantity + newTotalQuantity);
+        setHasCalculatedTotal(true);
+      }, [orders, hasCalculatedTotal]);
+
+      
 
     return (
       <Container>
@@ -91,24 +99,23 @@ export function MyOrders({ $Isadmin, orderCount,setOrderCount   }){
         />
 
         {
-          orders && 
-          <main>
-            <div>
-              <header>
-                <ButtonText onClick={handleBack}>
-                  <RxCaretLeft />
-                  voltar
-                </ButtonText>
-
-                <h1> Meus Pedidos</h1>                
-                
-              <p>Preço Total: R$ {totalPrice.toFixed(2).replace(".", ",")}</p>
-            </header>
-
-
-              <Content>
-                {
-                  orders.map(order => (
+          orders && (
+            <main>
+              <div>
+                <header>
+                  <ButtonText onClick={handleBack}>
+                    <RxCaretLeft />
+                    voltar
+                  </ButtonText>
+    
+                  <h1> Meus Pedidos</h1>
+    
+                  <p>Preço Total: R$ {totalPrice.toFixed(2).replace(".", ",")}</p>
+                  <p>Quantidade Total: {totalQuantity}</p>
+                </header>
+    
+                <Content>
+                  {orders.map((order) => (
                     <Order
                       key={String(order.id)}
                       data={order}
@@ -118,13 +125,12 @@ export function MyOrders({ $Isadmin, orderCount,setOrderCount   }){
                       updateTotalPrice={updateTotalPrice}
                     />
                   ))}
-              </Content>
-            </div>
-          </main>
-        }
-
-        <Footer />
-      </Container>
-    );
-      }
-
+                </Content>
+              </div>
+            </main>
+          )}
+    
+          <Footer />
+        </Container>
+      );
+    }

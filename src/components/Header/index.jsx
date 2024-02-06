@@ -3,7 +3,7 @@ import {MdClose} from 'react-icons/md'
 import { useMediaQuery } from 'react-responsive'
 
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import {Container, Brand, Menu, Logout} from './styles'
  
@@ -34,7 +34,7 @@ export function Header({ $Isadmin, isDisabled, $ismenuOpen, setIsMenuOpen, setSe
     }
 
     function handleOrders() {
-        setQuantityOfItemsInTheCart((prevCount) => prevCount + 1);
+        setQuantityOfItemsInTheCart('...');
         navigate('/myorders');
       }
     
@@ -42,6 +42,21 @@ export function Header({ $Isadmin, isDisabled, $ismenuOpen, setIsMenuOpen, setSe
         navigate('/');
         signOut();
     }
+
+    useEffect(() => {
+        const fetchCartQuantity = async () => {
+          try {
+            const response = await api.get('/myorders');
+            const cartQuantity = response.data.length;
+            setQuantityOfItemsInTheCart(cartQuantity);
+          } catch (error) {
+            console.log('Error fetching cart quantity:', error);
+          }
+        };
+    
+        fetchCartQuantity();
+      }, []);
+    
 
     return(
         <Container>
@@ -81,7 +96,7 @@ export function Header({ $Isadmin, isDisabled, $ismenuOpen, setIsMenuOpen, setSe
                   isCustomer
                   ordercount={quantityOfItemsInTheCart}
                   onClick={handleOrders}
-                  setOrderCount={setQuantityOfItemsInTheCart}
+                  
              />
                         )}
 
