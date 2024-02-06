@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 import {Container, Brand, Menu, Logout} from './styles'
+
+import { api } from '../../services/api';
  
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../hooks/auth';
