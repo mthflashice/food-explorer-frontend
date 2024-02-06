@@ -1,8 +1,14 @@
 import { api } from '../../services/api';
+import React, { useState } from 'react';
 import { Container } from "./styles";
 import Swal from 'sweetalert2';
+import { NumberPicker } from '../NumberPicker';
+import {Button} from '../Button'
 
-export function Order({ data, cancelMyOrder, setOrderCount, orderCount }) {
+export function Order({ data, cancelMyOrder, setOrderCount, orderCount, updateTotalPrice  }) {
+  const [quantity, setQuantity] = useState(data.quantity || 1);
+  const [totalPrice, setTotalPrice] = useState(data.price * quantity);
+
   const showCancelConfirmation = () => {
     Swal.fire({
       title: 'Cancelar Pedido',
@@ -21,8 +27,20 @@ export function Order({ data, cancelMyOrder, setOrderCount, orderCount }) {
       }
     });
   };
+  const handleQuantityChange = (newQuantity) => {
+    const newTotalPrice = data.price * newQuantity;
+    setQuantity(newQuantity);
+    setTotalPrice(newTotalPrice);
+  };
 
-  const totalPrice = data.price * (data.quantity || 1);
+  
+  const handleUpdate = () => {
+    updateTotalPrice(totalPrice);
+    // Handle the logic for updating the order here
+    console.log("Atualizado")
+    handleQuantityChange(quantity);
+  };
+
 
   return (
     <Container>
@@ -32,7 +50,12 @@ export function Order({ data, cancelMyOrder, setOrderCount, orderCount }) {
         <h2>{data.name}</h2>
         <button onClick={showCancelConfirmation}>Cancelar Pedido</button>
         <p className="price-total">{`R$${totalPrice.toFixed(2).replace(".", ",")}`}</p>
-        <p>Quantidade: {data.quantity || 1}</p>
+        <p>Quantidade: {quantity}</p>
+        <NumberPicker number={quantity} setNumber={setQuantity} />
+        <Button 
+        title='atualizar'
+        onClick={handleUpdate} 
+        />
       </div>
     </Container>
   );

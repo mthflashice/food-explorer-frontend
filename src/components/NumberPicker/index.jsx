@@ -3,12 +3,12 @@ import { Container } from './styles'
 
 export function NumberPicker({ number, setNumber }) {
     const incrementNumber = () =>{
-        setNumber(number + 1);
+        setNumber((prevNumber) => prevNumber + 1);
     };
 
     const decrementNumber = () =>{
         if(number > 1){
-        setNumber(number - 1);
+        setNumber((prevNumber) => prevNumber - 1);
     }
 };
 

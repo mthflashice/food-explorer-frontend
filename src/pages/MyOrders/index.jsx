@@ -18,8 +18,15 @@ import { NumberPicker } from '../../components/NumberPicker';
 export function MyOrders({ $Isadmin, orderCount,setOrderCount   }){
   const $isDesktop = useMediaQuery({ minWidth: 1024 });
 
+  const updateTotalPrice = (newTotalPrice) => {
+    setTotalPrice(newTotalPrice);
+  };
+
+
   const [$ismenuOpen, setIsMenuOpen] = useState(false);
   const [orders, setOrders] = useState([]);
+  const [number, setNumber] = useState(1);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const navigate = useNavigate();
 
@@ -57,7 +64,11 @@ export function MyOrders({ $Isadmin, orderCount,setOrderCount   }){
         }
       };
       
-      const totalOrderPrice = orders.reduce((total, order) => total + order.price, 0);
+      useEffect(() => {
+        // Calculate the total price whenever orders change
+        const newTotalPrice = orders.reduce((total, order) => total + order.price, 0);
+        setTotalPrice(newTotalPrice);
+      }, [orders]);
    
 
     return (
@@ -67,7 +78,7 @@ export function MyOrders({ $Isadmin, orderCount,setOrderCount   }){
             $Isadmin={$Isadmin} 
             $ismenuOpen={$ismenuOpen} 
             setIsMenuOpen={setIsMenuOpen} 
-            flagUpdateOrder={handleUpdateOrder}
+            // flagUpdateOrder={handleUpdateOrder}
 
           />
         }
@@ -76,7 +87,7 @@ export function MyOrders({ $Isadmin, orderCount,setOrderCount   }){
           $Isadmin={$Isadmin} 
           $ismenuOpen={$ismenuOpen} 
           setIsMenuOpen={setIsMenuOpen}
-          flagUpdateOrder={handleUpdateOrder} 
+          // flagUpdateOrder={handleUpdateOrder} 
         />
 
         {
@@ -89,10 +100,9 @@ export function MyOrders({ $Isadmin, orderCount,setOrderCount   }){
                   voltar
                 </ButtonText>
 
-                <h1> Meus Pedidos</h1>
+                <h1> Meus Pedidos</h1>                
                 
-                
-              <p>Preço Total: R$ {totalOrderPrice.toFixed(2).replace(".", ",")}</p>
+              <p>Preço Total: R$ {totalPrice.toFixed(2).replace(".", ",")}</p>
             </header>
 
 
@@ -105,6 +115,7 @@ export function MyOrders({ $Isadmin, orderCount,setOrderCount   }){
                       cancelMyOrder={cancelMyOrder}
                       setOrderCount={setOrderCount}
                       orderCount={orderCount}
+                      updateTotalPrice={updateTotalPrice}
                     />
                   ))}
               </Content>
