@@ -100,7 +100,7 @@ $ npm run dev
 ```
 
 📺 Vídeo explicativo
-Você pode acessar o vídeo do projeto através do link: [aqui](https://www.youtube.com/watch?v=awAwINyE00c&t=3s&ab_channel=MatheusQuirinoLeite) ⏯
+Você pode acessar o vídeo do projeto através do link: [aqui](https://www.youtube.com/watch?v=8TQf0nmtNWs&ab_channel=MatheusQuirinoLeite) ⏯
 
 ⚠️ **Importante**: Este projeto utiliza uma hospedagem gratuita para o back-end, portanto, pode haver atrasos no tempo de resposta do servidor.
 

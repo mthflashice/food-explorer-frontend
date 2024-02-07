@@ -2,7 +2,6 @@ import {Container} from './styles'
 import {TbReceipt} from 'react-icons/tb'
 import {useMediaQuery} from 'react-responsive'
 
-import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export function Button({title, loading=false,isCustomer, ordercount, setOrderCount, ...rest}){

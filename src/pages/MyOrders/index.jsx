@@ -90,6 +90,18 @@ export function MyOrders({ $Isadmin }) {
     setTotalQuantity(newTotalQuantity);
   };
 
+  const removeOrderItem = async (dishId) => {
+    try {
+      await api.delete(`/myorders/${dishId}`);
+      setOrders((prevOrders) => {
+        const updatedOrders = prevOrders.filter((order) => order.id !== dishId);
+        calculateTotal(updatedOrders);
+        return updatedOrders;
+      });
+    } catch (error) {
+      console.log('Erro ao remover o pedido:', error);
+    }
+  };
   return (
     <Container>
       {!$isDesktop && (
@@ -128,6 +140,7 @@ export function MyOrders({ $Isadmin }) {
                   data={order}
                   cancelMyOrder={cancelMyOrder}
                   updateTotalPrice={updateTotalPrice}
+                  removeOrderItem={removeOrderItem}
                   api={api} // Passando a instância da API como propriedade
                 />
               ))}

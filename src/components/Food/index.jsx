@@ -3,7 +3,7 @@ import {FiHeart} from 'react-icons/fi'
 import {RxCaretRight} from 'react-icons/rx'
 import { useMediaQuery } from 'react-responsive'
 import theme from '../../styles/theme'
-import { Container, Title, OrderChosen } from './styles'
+import { Container, Title, OrderChosen, StyledFiHeart } from './styles'
 import {NumberPicker} from '../../components/NumberPicker'
 import { Button } from '../../components/Button'
 import { api } from '../../services/api';
@@ -96,37 +96,40 @@ export function Food({ data, $Isadmin, isFavorite, isMyorder, updateFavorite, up
     }
   };
     
-    return(
-        <Container {...rest} $Isadmin={$Isadmin}>
-            {$Isadmin? (
-            <BiPencil size={'2.4rem'} onClick={handleEdit}/>
-            ) : (
-                <FiHeart
-                size={"2.4rem"}
-                fill={isFavorite ? theme.COLORS.GRAY_200 : undefined}
-                onClick={handleFavorite}
-            />
-            )}
-
-            <img 
-            src={`${api.defaults.baseURL}/files/${data.image}`} 
-            alt='Imagem do prato.'
-            onClick={() => handleDetails(data.id)} 
-            />
-
-            <Title>
-                <h2>{data.name}</h2>
-                <RxCaretRight 
-                size={$isDesktop? '2.4rem' : '1.4rem'}
-                onClick={() => handleDetails(data.id)} 
-                />
-            </Title>
-
-            {$isDesktop && <p>{data.description}</p>}
-            <span>R$ {data.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
-            {!$Isadmin && (
-            <OrderChosen>
-                 <NumberPicker number={number} setNumber={setNumber} />
+  return (
+    <Container {...rest} $Isadmin={$Isadmin}>
+      {$Isadmin ? (
+        <BiPencil size={'2.4rem'} onClick={handleEdit} />
+      ) : (
+        <StyledFiHeart onClick={handleFavorite} isfavorite={isFavorite ? "true" : "false"}>
+          <FiHeart
+            size={"2.4rem"}
+            fill={isFavorite ? "#B31B1B" : "transparent"}
+            stroke={isFavorite ? "#B31B1B" : theme.COLORS.GRAY_200}
+            strokeWidth={2}
+          />
+        </StyledFiHeart>
+      )}
+  
+      <img
+        src={`${api.defaults.baseURL}/files/${data.image}`}
+        alt='Imagem do prato.'
+        onClick={() => handleDetails(data.id)}
+      />
+  
+      <Title>
+        <h2>{data.name}</h2>
+        <RxCaretRight
+          size={$isDesktop ? '2.4rem' : '1.4rem'}
+          onClick={() => handleDetails(data.id)}
+        />
+      </Title>
+  
+      {$isDesktop && <p>{data.description}</p>}
+      <span>R$ {data.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
+      {!$Isadmin && (
+        <OrderChosen>
+          <NumberPicker number={number} setNumber={setNumber} />
           <Button
             title='incluir'
             onClick={handleMyOrder}
