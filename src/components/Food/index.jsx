@@ -32,6 +32,14 @@ export function Food({ data, $Isadmin, isFavorite, isMyorder, updateFavorite, up
         updateFavorite(false, data.id);
       }
     } catch (error) {
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Erro ao atualizar favoritos',
+        text: 'Não foi possível atualizar os favoritos.',
+        showConfirmButton: false,
+        timer: 1500,
+      });
       console.log('Erro ao atualizar favoritos:', error);
     }
   };
